@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUp, ArrowDown, CheckCircle2, RotateCcw, HelpCircle, Layers, Trophy } from 'lucide-react';
 
 export function SentenceOrderingPuzzles({ story, onActivityDone }) {
@@ -8,22 +8,40 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
   const activityFiredRef = React.useRef(false);
 
   // Puzzle items for Ascending / Descending
-  const baseItems = story.orderingPuzzle || [
-    { id: 'p1', text: `${story.character} attempts risky action inside try: block.`, correctAscending: 1, pythonCode: 'try:\n    risky_action()' },
-    { id: 'p2', text: 'Risky action raises an exception during execution.', correctAscending: 2, pythonCode: `raise ${story.errorType}()` },
-    { id: 'p3', text: `Catch ${story.errorType} in except: safety net handler.`, correctAscending: 3, pythonCode: `except ${story.errorType}:` },
+  const getBaseItems = (s) => s.orderingPuzzle || [
+    { id: 'p1', text: `${s.character} attempts risky action inside try: block.`, correctAscending: 1, pythonCode: 'try:\n    risky_action()' },
+    { id: 'p2', text: 'Risky action raises an exception during execution.', correctAscending: 2, pythonCode: `raise ${s.errorType}()` },
+    { id: 'p3', text: `Catch ${s.errorType} in except: safety net handler.`, correctAscending: 3, pythonCode: `except ${s.errorType}:` },
     { id: 'p4', text: 'Clean up resources inside finally: block guaranteed.', correctAscending: 4, pythonCode: 'finally:\n    cleanup()' },
   ];
 
+  const baseItems = getBaseItems(story);
+
   // Ascending state (chronological order: 1 -> 4)
-  const [ascOrder, setAscOrder] = useState([...baseItems].sort(() => Math.random() - 0.5));
+  const [ascOrder, setAscOrder] = useState(() => [...getBaseItems(story)].sort(() => Math.random() - 0.5));
   const [ascChecked, setAscChecked] = useState(false);
   const [ascCorrect, setAscCorrect] = useState(false);
 
   // Descending state (reverse order: 4 -> 1)
-  const [descOrder, setDescOrder] = useState([...baseItems].sort(() => Math.random() - 0.5));
+  const [descOrder, setDescOrder] = useState(() => [...getBaseItems(story)].sort(() => Math.random() - 0.5));
   const [descChecked, setDescChecked] = useState(false);
   const [descCorrect, setDescCorrect] = useState(false);
+
+  // Reset everything when story changes
+  useEffect(() => {
+    const freshItems = getBaseItems(story);
+    setAscOrder([...freshItems].sort(() => Math.random() - 0.5));
+    setDescOrder([...freshItems].sort(() => Math.random() - 0.5));
+    setAscChecked(false);
+    setAscCorrect(false);
+    setDescChecked(false);
+    setDescCorrect(false);
+    setFillAnswers({});
+    setFillSubmitted(false);
+    activityFiredRef.current = false;
+  }, [story.id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+
 
   // Ascending move item up/down
   const moveAsc = (index, direction) => {
@@ -51,7 +69,7 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
     const isRight = ascOrder.every((item, idx) => item.correctAscending === idx + 1);
     setAscCorrect(isRight);
     setAscChecked(true);
-    if (isRight && !activityFiredRef.current) {
+    if (!activityFiredRef.current) {
       activityFiredRef.current = true;
       onActivityDone && onActivityDone();
     }
@@ -62,6 +80,10 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
     const isRight = descOrder.every((item, idx) => item.correctAscending === maxLen - idx);
     setDescCorrect(isRight);
     setDescChecked(true);
+    if (!activityFiredRef.current) {
+      activityFiredRef.current = true;
+      onActivityDone && onActivityDone();
+    }
   };
 
   const fillups = story.fillups || {

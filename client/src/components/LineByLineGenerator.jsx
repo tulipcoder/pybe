@@ -19,6 +19,7 @@ export function LineByLineGenerator({ story, onActivityDone }) {
     setActiveExplanation('');
   };
 
+
   useEffect(() => {
     resetGenerator();
   }, [story.id]);

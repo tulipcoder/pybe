@@ -45,23 +45,32 @@ function App() {
   const concepts = useMemo(() => [...new Set(scenarios.flatMap((scenario) => scenario.concepts || []))].sort(), [scenarios]);
 
   async function refresh() {
-    const params = new URLSearchParams(Object.entries(filters).filter(([, value]) => value));
-    const [scenarioData, sessionData, analyticsData, roadmapData] = await Promise.all([
-      api(`/scenarios?${params}`),
-      api('/sessions'),
-      api('/analytics'),
-      api('/roadmap')
-    ]);
-    setScenarios(scenarioData);
-    setSessions(sessionData);
-    setAnalytics(analyticsData);
-    setRoadmap(roadmapData);
-    setSelected((current) => current || scenarioData[0] || null);
-    setLoading(false);
+    try {
+      const params = new URLSearchParams(Object.entries(filters).filter(([, value]) => value));
+      const [scenarioData, sessionData, analyticsData, roadmapData] = await Promise.all([
+        api(`/scenarios?${params}`),
+        api('/sessions'),
+        api('/analytics'),
+        api('/roadmap')
+      ]);
+      setScenarios(scenarioData || []);
+      setSessions(sessionData || []);
+      setAnalytics(analyticsData || null);
+      setRoadmap(roadmapData || []);
+      setSelected((current) => current || (scenarioData && scenarioData[0]) || null);
+    } catch (err) {
+      console.warn('Backend API server not reachable, running standalone mode:', err);
+      setScenarios([]);
+      setSessions([]);
+      setAnalytics(null);
+      setRoadmap([]);
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(() => {
-    refresh().catch(console.error);
+    refresh();
   }, [filters.q, filters.difficulty, filters.concept]);
 
   async function submitSession(event) {
@@ -76,26 +85,33 @@ function App() {
       setActiveResult(result);
       setForm({ ...form, reasoning: '', promptText: '', reflection: '' });
       await refresh();
+    } catch (err) {
+      console.error('Session submission error:', err);
     } finally {
       setSubmitting(false);
     }
   }
 
   async function handleChildhoodReasoningSubmit(reasoningText, storyTitle) {
-    const matchingScenario = scenarios.find((s) => s.title.includes(storyTitle.split('&')[0].trim())) || selected || scenarios[0];
-    if (!matchingScenario) return null;
-    const result = await api('/sessions', {
-      method: 'POST',
-      body: JSON.stringify({
-        learnerName: 'Guest learner',
-        reasoning: reasoningText,
-        promptText: `Explain Python Exception handling for ${storyTitle}`,
-        reflection: 'Studied childhood story scenario',
-        scenarioId: matchingScenario._id
-      })
-    });
-    await refresh();
-    return result;
+    try {
+      const matchingScenario = scenarios.find((s) => s.title.includes(storyTitle.split('&')[0].trim())) || selected || scenarios[0];
+      if (!matchingScenario) return null;
+      const result = await api('/sessions', {
+        method: 'POST',
+        body: JSON.stringify({
+          learnerName: 'Guest learner',
+          reasoning: reasoningText,
+          promptText: `Explain Python Exception handling for ${storyTitle}`,
+          reflection: 'Studied childhood story scenario',
+          scenarioId: matchingScenario._id
+        })
+      });
+      await refresh();
+      return result;
+    } catch (err) {
+      console.warn('Backend session recording skipped:', err);
+      return null;
+    }
   }
 
   if (loading) return <main className="loading">Loading PyBe...</main>;
@@ -191,7 +207,7 @@ function App() {
                 </div>
                 <p className="context">{selected?.context}</p>
                 <div className="objective-row">
-                  {selected?.objectives.map((item) => <span key={item}>{item}</span>)}
+                  {selected?.objectives?.map((item) => <span key={item}>{item}</span>)}
                 </div>
                 <form onSubmit={submitSession} className="learning-form">
                   <label>
@@ -200,7 +216,7 @@ function App() {
                       required
                       value={form.reasoning}
                       onChange={(event) => setForm({ ...form, reasoning: event.target.value })}
-                      placeholder={selected?.prompt}
+                      placeholder={selected?.prompt || 'Enter your reasoning...'}
                     />
                   </label>
                   <label>
@@ -267,9 +283,9 @@ function EmptyResult() {
 function Result({ result }) {
   return (
     <div className="result-stack">
-      <div className="score"><span>{result.promptScore}</span><small>Prompt maturity</small></div>
+      <div className="score"><span>{result.promptScore || 0}</span><small>Prompt maturity</small></div>
       <div>
-        {result.abstractionMap.map((item) => (
+        {result.abstractionMap?.map((item) => (
           <article className="mapping" key={item.pattern}>
             <strong>{item.pattern}</strong>
             <span>{item.pythonConcept}</span>
@@ -283,9 +299,9 @@ function Result({ result }) {
         <p>{result.codeExplanation}</p>
       </div>
       <ul className="feedback">
-        {result.promptFeedback.map((item) => <li key={item}>{item}</li>)}
+        {result.promptFeedback?.map((item) => <li key={item}>{item}</li>)}
       </ul>
-      {result.misconceptions.length > 0 && (
+      {result.misconceptions?.length > 0 && (
         <div className="note">
           <strong>Misconception watch</strong>
           {result.misconceptions.map((item) => <p key={item}>{item}</p>)}

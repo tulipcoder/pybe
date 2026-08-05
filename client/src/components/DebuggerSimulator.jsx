@@ -261,6 +261,13 @@ export function DebuggerSimulator({ story, currentCondition, onConditionChange, 
     setLogs([]);
   };
 
+  // Fire activity done when user reaches the last step
+  useEffect(() => {
+    if (lineIdx >= total - 1 && total > 0) {
+      onActivityDone && onActivityDone();
+    }
+  }, [lineIdx, total]); // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => { reset(); }, [story.id, currentCondition]);
 
   useEffect(() => {

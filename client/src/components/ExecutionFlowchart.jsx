@@ -32,8 +32,12 @@ export function ExecutionFlowchart({ hasError = false, story, onActivityDone }) 
   const [isRunning, setIsRunning] = useState(false);
   const path = hasError ? PATH_ERROR : PATH_SUCCESS;
 
-  // Auto-complete on mount — this stage is view-only
-  useEffect(() => { onActivityDone && onActivityDone(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  // Fire activity done when animation plays to the end
+  useEffect(() => {
+    if (!isRunning && activeIdx >= path.length - 1 && activeIdx >= 0) {
+      onActivityDone && onActivityDone();
+    }
+  }, [isRunning, activeIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     setActiveIdx(-1);

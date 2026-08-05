@@ -166,6 +166,7 @@ export function Page1Stories({
     ? stories.filter(s => completedStories.includes(s.id))
     : stories.filter(s => s.errorType.includes(filterError));
 
+
   const handleCardClick = (story, isUnlocked, storyIndex) => {
     if (!isUnlocked) {
       const prevStory = stories[storyIndex - 1];
@@ -175,6 +176,7 @@ export function Page1Stories({
     }
     onSelectStory(story.id);
     setModalStory(story);
+    onActivityDone && onActivityDone();
   };
 
   return (

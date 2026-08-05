@@ -1,146 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShieldAlert, CheckCircle2, RotateCcw, Trophy, Zap, ArrowRight } from 'lucide-react';
+import { getStoryBugHunterPuzzles } from '../storyData';
 
-const PUZZLES = [
-  {
-    id: 'p1',
-    story: 'Little Red Riding Hood',
-    icon: '🐺',
-    scene: 'Red Riding Hood calls guest.bake_pastries() but the guest is a Wolf!',
-    bugCode: `try:
-    guest.bake_pastries()
-        # Wolf has no bake_pastries method!
-# ???: ??? as wolf_error:
-#     woodcutter.alert_rescue()`,
-    options: [
-      { id: 'a', label: 'except AttributeError', correct: true,  color: 'opt-red'   },
-      { id: 'b', label: 'except ZeroDivisionError', correct: false, color: 'opt-blue'  },
-      { id: 'c', label: 'except IndexError',        correct: false, color: 'opt-green' },
-      { id: 'd', label: 'except FileNotFoundError', correct: false, color: 'opt-purple'},
-    ],
-    fixedCode: `try:
-    guest.bake_pastries()
-except AttributeError as wolf_error:
-    woodcutter.alert_rescue()
-    print("🪓 Woodcutter: RESCUED!")`,
-    explanation: '✅ AttributeError fires when an object lacks the called method. Wolf has no .bake_pastries() so we catch AttributeError.'
-  },
-  {
-    id: 'p2',
-    story: 'Tortoise & Hare',
-    icon: '🐢',
-    scene: 'The Hare fell asleep (speed = 0) — dividing distance by speed causes crash!',
-    bugCode: `distance = 100
-hare_speed = 0
-# ???: ??? :
-#     time = distance / hare_speed`,
-    options: [
-      { id: 'a', label: 'try:',              correct: true,  color: 'opt-red'   },
-      { id: 'b', label: 'else:',             correct: false, color: 'opt-blue'  },
-      { id: 'c', label: 'finally:',          correct: false, color: 'opt-green' },
-      { id: 'd', label: 'except ValueError', correct: false, color: 'opt-purple'},
-    ],
-    fixedCode: `distance = 100
-hare_speed = 0
+export function BugHunterGame({ story, onScoreUpdate, onActivityDone }) {
+  const PUZZLES = getStoryBugHunterPuzzles(story);
 
-try:
-    time = distance / hare_speed
-except ZeroDivisionError:
-    print("🐢 Tortoise wins — Hare was sleeping!")`,
-    explanation: '✅ try: wraps risky operations. Division by zero only happens inside try:, so we wrap it there first.'
-  },
-  {
-    id: 'p3',
-    story: 'Goldilocks & Three Bears',
-    icon: '🐻',
-    scene: 'Goldilocks picks porridge index 5, but the bowl list only has 3 items!',
-    bugCode: `porridge = ["Hot","Cold","Just Right"]
-index = 5
-try:
-    choice = porridge[index]
-# ???: ???:
-#     print("That bowl doesnt exist!")`,
-    options: [
-      { id: 'a', label: 'except IndexError',        correct: true,  color: 'opt-red'   },
-      { id: 'b', label: 'except AttributeError',    correct: false, color: 'opt-blue'  },
-      { id: 'c', label: 'except TypeError',         correct: false, color: 'opt-green' },
-      { id: 'd', label: 'except OverflowError',     correct: false, color: 'opt-purple'},
-    ],
-    fixedCode: `porridge = ["Hot","Cold","Just Right"]
-index = 5
-try:
-    choice = porridge[index]
-except IndexError:
-    print("🐻 That bowl doesn't exist — IndexError caught!")`,
-    explanation: "✅ IndexError fires when you access a list index outside its length. porridge has only indices 0-2, so index 5 throws IndexError."
-  },
-  {
-    id: 'p4',
-    story: 'Three Little Pigs',
-    icon: '🐷',
-    scene: 'After building (success or failure), the pigs must ALWAYS lock the construction site.',
-    bugCode: `material = "straw"
-try:
-    build_house(material)
-except HuffError:
-    call_for_help()
-# The site lock MUST run even if exception occurs!
-# ???:
-#     lock_site()
-#     cleanup_tools()`,
-    options: [
-      { id: 'a', label: 'finally:',          correct: true,  color: 'opt-red'   },
-      { id: 'b', label: 'else:',             correct: false, color: 'opt-blue'  },
-      { id: 'c', label: 'except Exception:', correct: false, color: 'opt-green' },
-      { id: 'd', label: 'try:',              correct: false, color: 'opt-purple'},
-    ],
-    fixedCode: `material = "straw"
-try:
-    build_house(material)
-except HuffError:
-    call_for_help()
-finally:
-    lock_site()       # ALWAYS runs!
-    cleanup_tools()   # ALWAYS runs!
-    print("🔒 Site secured regardless!")`,
-    explanation: "✅ finally: ALWAYS executes — whether or not an exception was raised. Perfect for resource cleanup (lock_site, close files, DB disconnect)."
-  },
-  {
-    id: 'p5',
-    story: 'Hansel & Gretel',
-    icon: '🍞',
-    scene: 'Hansel and Gretel open the breadcrumbs file — but birds ate it overnight!',
-    bugCode: `trail_file = "breadcrumbs_trail.txt"
-try:
-    with open(trail_file) as f:
-        path = f.read()
-# ???: ???:
-#     path = compass.navigate()`,
-    options: [
-      { id: 'a', label: 'except FileNotFoundError', correct: true,  color: 'opt-red'   },
-      { id: 'b', label: 'except IOError',            correct: false, color: 'opt-blue'  },
-      { id: 'c', label: 'except NameError',          correct: false, color: 'opt-green' },
-      { id: 'd', label: 'except OSError',            correct: false, color: 'opt-purple'},
-    ],
-    fixedCode: `trail_file = "breadcrumbs_trail.txt"
-try:
-    with open(trail_file) as f:
-        path = f.read()
-except FileNotFoundError:
-    path = compass.navigate()
-    print("🧭 Using compass — breadcrumbs eaten!")`,
-    explanation: "✅ FileNotFoundError is the specific error when open() can't find the file. Though OSError is the parent, catching the specific subclass is best practice."
-  },
-];
-
-export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
   const [pIdx,     setPIdx]     = useState(0);
   const [selected, setSelected] = useState(null);
   const [answered, setAnswered] = useState(false);
   const [score,    setScore]    = useState(0);
   const [done,     setDone]     = useState(false);
 
+  // Reset when story changes
+  useEffect(() => {
+    setPIdx(0); setSelected(null); setAnswered(false); setScore(0); setDone(false);
+  }, [story.id]);
+
   const puzzle = PUZZLES[pIdx];
+
 
   const choose = (opt) => {
     if (answered) return;
@@ -151,6 +28,7 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
       setScore(next);
       onScoreUpdate && onScoreUpdate(next);
     }
+    onActivityDone && onActivityDone();
   };
 
   const nextPuzzle = () => {
@@ -160,7 +38,7 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
       setAnswered(false);
     } else {
       setDone(true);
-      onActivityDone && onActivityDone(); // all puzzles answered
+      onActivityDone && onActivityDone();
     }
   };
 
@@ -189,7 +67,6 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
     );
   }
 
-  // Split lines of buggy code to render line numbers in pro IDE style
   const codeLines = puzzle.bugCode.split('\n');
 
   return (
@@ -212,7 +89,7 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
         </div>
       </div>
 
-      {/* Futuristic Progress Strip */}
+      {/* Progress Strip */}
       <div className="bug-progress-track">
         {PUZZLES.map((_, i) => (
           <div 
@@ -232,7 +109,7 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
         <p className="bug-scene-desc">{puzzle.scene}</p>
       </div>
 
-      {/* Cyberpunk Code Workspace (IDE Style) */}
+      {/* Code Workspace */}
       <div className="bug-ide-workspace">
         <div className="bug-ide-tab-bar">
           <div className="bug-ide-tab active">
@@ -290,7 +167,7 @@ export function BugHunterGame({ onScoreUpdate, onActivityDone }) {
         })}
       </div>
 
-      {/* Interactive Result Traceback Output Panel */}
+      {/* Result Panel */}
       {answered && (
         <div className={`bug-result-panel-modern ${puzzle.options.find(o => o.id === selected)?.correct ? 'result-success' : 'result-failure'}`}>
           <div className="panel-glow-overlay" />

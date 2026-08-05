@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
   ChevronLeft,
@@ -403,17 +403,102 @@ export function ExceptionStudio({ onSubmitReasoning }) {
   const [activeStage, setActiveStage] = useState(1);
   const [activeStoryId, setActiveStoryId] = useState('red_hood');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [completedStages, setCompletedStages] = useState([]);
-  const [unlockedStages, setUnlockedStages] = useState([1]);
+  const [completedStagesMap, setCompletedStagesMap] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pybe_completed_stages_map');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [unlockedStagesMap, setUnlockedStagesMap] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pybe_unlocked_stages_map');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [stageActivityDoneMap, setStageActivityDoneMap] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pybe_stage_activity_done_map');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+  const [completedStories, setCompletedStories] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pybe_completed_stories');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+  const [unlockedStories, setUnlockedStories] = useState(() => {
+    try {
+      const saved = localStorage.getItem('pybe_unlocked_stories');
+      return saved ? JSON.parse(saved) : ['red_hood'];
+    } catch {
+      return ['red_hood'];
+    }
+  });
   const [completionPopup, setCompletionPopup] = useState(null);
-  // Track stories that have been completed by the user
-  const [completedStories, setCompletedStories] = useState([]);
-  const [unlockedStories, setUnlockedStories] = useState(['red_hood']);
-  // Per-stage activity tracking — true means the user has done the activity
-  const [stageActivityDone, setStageActivityDone] = useState({ 1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:true });
+
+  useEffect(() => {
+    localStorage.setItem('pybe_completed_stages_map', JSON.stringify(completedStagesMap));
+  }, [completedStagesMap]);
+
+  useEffect(() => {
+    localStorage.setItem('pybe_unlocked_stages_map', JSON.stringify(unlockedStagesMap));
+  }, [unlockedStagesMap]);
+
+  useEffect(() => {
+    localStorage.setItem('pybe_stage_activity_done_map', JSON.stringify(stageActivityDoneMap));
+  }, [stageActivityDoneMap]);
+
+  useEffect(() => {
+    localStorage.setItem('pybe_completed_stories', JSON.stringify(completedStories));
+  }, [completedStories]);
+
+  useEffect(() => {
+    localStorage.setItem('pybe_unlocked_stories', JSON.stringify(unlockedStories));
+  }, [unlockedStories]);
+
+  const isReviewMode = completedStories.includes(activeStoryId);
+  const completedStages = isReviewMode
+    ? [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    : (completedStagesMap[activeStoryId] || []);
+  const unlockedStages = isReviewMode
+    ? [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    : (unlockedStagesMap[activeStoryId] || [1]);
+  const stageActivityDone = isReviewMode
+    ? { 1:true,2:true,3:true,4:true,5:true,6:true,7:true,8:true,9:true }
+    : (stageActivityDoneMap[activeStoryId] || { 1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:false });
 
   const handleActivityDone = (stageId) => {
-    setStageActivityDone(prev => ({ ...prev, [stageId]: true }));
+    setStageActivityDoneMap(prev => {
+      const storyDoneObj = prev[activeStoryId] || { 1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:false };
+      const updatedStoryObj = { ...storyDoneObj, [stageId]: true };
+
+      // If Stage 9 activity is completed, unlock the next story!
+      if (stageId === 9) {
+        unlockNextStory(activeStoryId);
+      }
+
+      return {
+        ...prev,
+        [activeStoryId]: updatedStoryObj
+      };
+    });
+
+    setCompletedStagesMap(prev => {
+      const current = prev[activeStoryId] || [];
+      return {
+        ...prev,
+        [activeStoryId]: current.includes(stageId) ? current : [...current, stageId]
+      };
+    });
   };
 
   const unlockNextStory = (storyId) => {
@@ -447,50 +532,92 @@ export function ExceptionStudio({ onSubmitReasoning }) {
   };
 
   const handleSelectStory = (storyId) => {
-    setActiveStoryId(storyId);
+    if (unlockedStories.includes(storyId)) {
+      setActiveStoryId(storyId);
+      setActiveStage(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleLoadDebugger = (storyId) => {
+    if (!unlockedStories.includes(storyId)) return;
     setActiveStoryId(storyId);
-    // Do NOT mark story as completed here — only the Stage 9 Playground redirect does that
-    handleStageChange(2); // Redirect to Debugger Simulator
-  };
-
-  const handleRedirectToNextStoryOnPage1 = () => {
-    // Unlock next story & mark current story completed
-    unlockNextStory(activeStoryId);
-    const currIdx = EXCEPTION_STORIES.findIndex(s => s.id === activeStoryId);
-    const nextStory = EXCEPTION_STORIES[currIdx + 1] || EXCEPTION_STORIES[0];
-    
-    setActiveStoryId(nextStory.id);
-    setActiveStage(1); // Redirect to Page 1 Stories
-    setUnlockedStages([1]); // Reset stage stepper for the new story
-    setStageActivityDone({ 1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:true });
+    // The user read the full story in the modal — that completes Stage 1's activity.
+    setStageActivityDoneMap(prev => ({
+      ...prev,
+      [storyId]: {
+        ...(prev[storyId] || { 1:false,2:false,3:false,4:false,5:false,6:false,7:false,8:false,9:false }),
+        1: true
+      }
+    }));
+    setCompletedStagesMap(prev => {
+      const current = prev[storyId] || [];
+      return { ...prev, [storyId]: current.includes(1) ? current : [...current, 1] };
+    });
+    setUnlockedStagesMap(prev => {
+      const current = prev[storyId] || [1];
+      return { ...prev, [storyId]: current.includes(2) ? current : [...current, 2] };
+    });
+    setActiveStage(2);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleRedirectToNextStoryOnPage1 = () => {
+    // Mark stage 9 as completed with a tick before redirecting
+    handleActivityDone(9);
+    unlockNextStory(activeStoryId);
+
+    const currIdx = EXCEPTION_STORIES.findIndex(s => s.id === activeStoryId);
+    const nextStory = EXCEPTION_STORIES[currIdx + 1] || EXCEPTION_STORIES[0];
+
+    // Small delay so the tick renders before resetting to new story
+    setTimeout(() => {
+      setActiveStoryId(nextStory.id);
+      setActiveStage(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 400);
+  };
 
   const handleStageChange = (stageId) => {
-    setActiveStage(stageId);
-    setCompletedStages(prev => {
-      const next = [...prev];
-      for (let i = 1; i < stageId; i++) {
-        if (!next.includes(i)) next.push(i);
-      }
-      return next;
-    });
+    if (unlockedStages.includes(stageId)) {
+      setActiveStage(stageId);
+    }
   };
 
   const goToNextStage = () => {
     if (activeStage < 8) {
       const next = activeStage + 1;
-      setCompletedStages(prev => prev.includes(activeStage) ? prev : [...prev, activeStage]);
-      setUnlockedStages(prev => prev.includes(next) ? prev : [...prev, next]);
+      setCompletedStagesMap(prev => {
+        const current = prev[activeStoryId] || [];
+        return {
+          ...prev,
+          [activeStoryId]: current.includes(activeStage) ? current : [...current, activeStage]
+        };
+      });
+      setUnlockedStagesMap(prev => {
+        const current = prev[activeStoryId] || [1];
+        return {
+          ...prev,
+          [activeStoryId]: current.includes(next) ? current : [...current, next]
+        };
+      });
       setCompletionPopup({ fromStage: activeStage, toStage: next });
     } else {
       // Stage 8 done — unlock the Playground (Stage 9)
-      setCompletedStages(prev => prev.includes(activeStage) ? prev : [...prev, activeStage]);
-      setUnlockedStages(prev => prev.includes(9) ? prev : [...prev, 9]);
+      setCompletedStagesMap(prev => {
+        const current = prev[activeStoryId] || [];
+        return {
+          ...prev,
+          [activeStoryId]: current.includes(activeStage) ? current : [...current, activeStage]
+        };
+      });
+      setUnlockedStagesMap(prev => {
+        const current = prev[activeStoryId] || [1];
+        return {
+          ...prev,
+          [activeStoryId]: current.includes(9) ? current : [...current, 9]
+        };
+      });
       setCompletionPopup({ fromStage: activeStage, toStage: 9 });
     }
   };
@@ -605,12 +732,14 @@ export function ExceptionStudio({ onSubmitReasoning }) {
 
         {activeStage === 5 && (
           <BugHunterGame
+            story={currentStory}
             onActivityDone={() => handleActivityDone(5)}
           />
         )}
 
         {activeStage === 6 && (
           <ConceptFlipCards
+            story={currentStory}
             onActivityDone={() => handleActivityDone(6)}
           />
         )}
@@ -624,14 +753,17 @@ export function ExceptionStudio({ onSubmitReasoning }) {
 
         {activeStage === 8 && (
           <AIReasoningSandbox
+            story={currentStory}
             onActivityDone={() => handleActivityDone(8)}
           />
         )}
 
         {activeStage === 9 && (
           <CustomStoryPlayground
+            story={currentStory}
             onReturnToStudio={() => setActiveStage(8)}
             onRedirectToPage1={handleRedirectToNextStoryOnPage1}
+            onActivityDone={() => handleActivityDone(9)}
           />
         )}
       </div>

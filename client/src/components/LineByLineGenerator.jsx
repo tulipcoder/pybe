@@ -47,8 +47,9 @@ export function LineByLineGenerator({ story, onActivityDone }) {
       const active = sentences[currentLineIndex - 1];
       setTypedCodeLines(sentences.slice(0, currentLineIndex));
       if (active) setActiveExplanation(active.explanation);
-      // Fire activity done on first line generated
-      if (!activityFiredRef.current) {
+      // Fire activity done when at least 80% of code lines are generated
+      const reqLines = Math.ceil(sentences.length * 0.8);
+      if (currentLineIndex >= reqLines && !activityFiredRef.current) {
         activityFiredRef.current = true;
         onActivityDone && onActivityDone();
       }

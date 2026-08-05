@@ -65,14 +65,25 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
     }
   };
 
+  const [completedModes, setCompletedModes] = useState({ asc: false, desc: false, fill: false });
+
+  const recordModeDone = (key) => {
+    setCompletedModes(prev => {
+      const next = { ...prev, [key]: true };
+      const count = Object.values(next).filter(Boolean).length;
+      if (count >= 2 && !activityFiredRef.current) {
+        activityFiredRef.current = true;
+        onActivityDone && onActivityDone();
+      }
+      return next;
+    });
+  };
+
   const checkAscending = () => {
     const isRight = ascOrder.every((item, idx) => item.correctAscending === idx + 1);
     setAscCorrect(isRight);
     setAscChecked(true);
-    if (!activityFiredRef.current) {
-      activityFiredRef.current = true;
-      onActivityDone && onActivityDone();
-    }
+    recordModeDone('asc');
   };
 
   const checkDescending = () => {
@@ -80,10 +91,7 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
     const isRight = descOrder.every((item, idx) => item.correctAscending === maxLen - idx);
     setDescCorrect(isRight);
     setDescChecked(true);
-    if (!activityFiredRef.current) {
-      activityFiredRef.current = true;
-      onActivityDone && onActivityDone();
-    }
+    recordModeDone('desc');
   };
 
   const fillups = story.fillups || {
@@ -95,11 +103,7 @@ export function SentenceOrderingPuzzles({ story, onActivityDone }) {
 
   const checkFillups = () => {
     setFillSubmitted(true);
-    // fire activity done when submitted (any attempt counts)
-    if (!activityFiredRef.current) {
-      activityFiredRef.current = true;
-      onActivityDone && onActivityDone();
-    }
+    recordModeDone('fill');
   };
 
   const isFillupsCorrect = () => {

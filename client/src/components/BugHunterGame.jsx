@@ -28,7 +28,6 @@ export function BugHunterGame({ story, onScoreUpdate, onActivityDone }) {
       setScore(next);
       onScoreUpdate && onScoreUpdate(next);
     }
-    onActivityDone && onActivityDone();
   };
 
   const nextPuzzle = () => {

@@ -17,7 +17,9 @@ export function ConceptFlipCards({ story, onActivityDone }) {
   const toggle = (id) => {
     setFlipped(prev => {
       const next = { ...prev, [id]: !prev[id] };
-      if (!activityFiredRef.current) {
+      const flippedCount = Object.keys(next).filter(k => next[k]).length;
+      const reqCount = Math.ceil(CARDS.length * 0.8);
+      if (flippedCount >= reqCount && !activityFiredRef.current) {
         activityFiredRef.current = true;
         onActivityDone && onActivityDone();
       }

@@ -2082,21 +2082,32 @@ meter {
   font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all 0.2s;
 }
 .bug-next-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
-.bug-done        { display: flex; align-items: center; justify-content: center; min-height: 300px; }
-.bug-done-inner  { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 380px; }
-.bug-done-icon   { font-size: 3.5rem; animation: pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1); }
-.bug-done-inner h3 { margin: 0; font-size: 1.5rem; color: #f1f5f9; }
-.bug-done-inner p  { margin: 0; color: #94a3b8; }
+.bug-done        { display: flex; align-items: center; justify-content: center; min-height: 340px; padding: 24px; }
+.bug-done-inner  {
+  text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px;
+  max-width: 440px; width: 100%; background: #0f172a !important;
+  border: 2px solid rgba(99,102,241,0.4); border-radius: 20px; padding: 36px 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(99,102,241,0.15);
+}
+.bug-done-icon   { font-size: 3.8rem; line-height: 1; animation: pop-in 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+.bug-done-inner h3, .bug-done-title {
+  margin: 0; font-size: 1.75rem; font-weight: 900; color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8); letter-spacing: -0.02em;
+}
+.bug-done-inner p, .bug-done-desc  {
+  margin: 0; color: #e2e8f0 !important; font-size: 1rem; font-weight: 600; line-height: 1.5;
+}
+.bug-done-desc strong { color: #4ade80 !important; font-weight: 800; }
 @keyframes pop-in { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-.bug-progress-bar-wrap { width: 100%; background: rgba(255,255,255,0.08); border-radius: 20px; height: 10px; overflow: hidden; }
+.bug-progress-bar-wrap { width: 100%; background: rgba(255,255,255,0.12); border-radius: 20px; height: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); }
 .bug-progress-bar      { height: 100%; background: linear-gradient(90deg, #6366f1, #4ade80); border-radius: 20px; transition: width 0.8s ease; }
 .bug-restart-btn {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.4);
-  color: #a5b4fc; padding: 10px 24px; border-radius: 10px;
-  cursor: pointer; font-weight: 700; font-size: 0.88rem; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #6366f1; border: 1px solid #818cf8; color: #ffffff !important;
+  padding: 12px 28px; border-radius: 12px; cursor: pointer; font-weight: 800;
+  font-size: 0.95rem; transition: all 0.2s ease; box-shadow: 0 4px 14px rgba(99,102,241,0.4);
 }
-.bug-restart-btn:hover { background: rgba(99,102,241,0.35); }
+.bug-restart-btn:hover { background: #4f46e5; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,0.6); }
 
 /* =====================================================
    BUG HUNTER IDE WORKSPACE & MODERN THEMING

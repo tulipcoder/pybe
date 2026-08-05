@@ -53,8 +53,8 @@ export function BugHunterGame({ story, onScoreUpdate, onActivityDone }) {
           <div className="bug-done-icon">
             {pct >= 80 ? '🏆' : pct >= 50 ? '⭐' : '🔁'}
           </div>
-          <h3>{pct >= 80 ? 'Exception Master!' : pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h3>
-          <p>You caught <strong>{score}</strong> out of <strong>{PUZZLES.length}</strong> bugs correctly ({pct}%)</p>
+          <h3 className="bug-done-title">{pct >= 80 ? 'Exception Master!' : pct >= 50 ? 'Good Effort!' : 'Keep Practicing!'}</h3>
+          <p className="bug-done-desc">You caught <strong>{score}</strong> out of <strong>{PUZZLES.length}</strong> bugs correctly ({pct}%)</p>
           <div className="bug-progress-bar-wrap">
             <div className="bug-progress-bar" style={{ width: `${pct}%` }} />
           </div>

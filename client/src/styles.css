@@ -5053,6 +5053,74 @@ meter {
   border-color: rgba(99,102,241,0.2);
 }
 
+.sms-header-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  width: 70px;
+}
+
+.step-cartoon-badge-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scb-emoji {
+  font-size: 1.6rem;
+  z-index: 2;
+  display: block;
+}
+
+/* Animations for step cartoon emojis */
+@keyframes bounceAnim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-2px) rotate(3deg); }
+}
+
+@keyframes wiggleAnim {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+@keyframes pulseAnim {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+}
+
+.bounce-anim { animation: bounceAnim 2s infinite ease-in-out; }
+.float-anim { animation: floatAnim 2.6s infinite ease-in-out; }
+.wiggle-anim { animation: wiggleAnim 2.2s infinite ease-in-out; }
+.pulse-anim { animation: pulseAnim 1.8s infinite ease-in-out; }
+
+/* Story Specific Glow Backdrops */
+.step-cartoon-badge-box.story-theme-red_hood { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
+.step-cartoon-badge-box.story-theme-tortoise_hare { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); }
+.step-cartoon-badge-box.story-theme-goldilocks { border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); }
+.step-cartoon-badge-box.story-theme-cried_wolf { border-color: rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); }
+.step-cartoon-badge-box.story-theme-three_pigs { border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1); }
+.step-cartoon-badge-box.story-theme-hansel_gretel { border-color: rgba(14, 165, 233, 0.4); background: rgba(14, 165, 233, 0.1); }
+.step-cartoon-badge-box.story-theme-jack_beanstalk { border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.1); }
+.step-cartoon-badge-box.story-theme-aladdin_genie { border-color: rgba(234, 179, 8, 0.4); background: rgba(234, 179, 8, 0.1); }
+.step-cartoon-badge-box.story-theme-cinderella { border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
+.step-cartoon-badge-box.story-theme-pied_piper { border-color: rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.1); }
+
 .sms-num {
   flex-shrink: 0;
   font-size: 0.72rem;

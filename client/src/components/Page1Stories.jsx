@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Sparkles, Code2, Star, X, ChevronRight, ArrowRight, Zap } from 'lucide-react';
 import { StoryCartoonBanner } from './StoryCartoonBanner';
+import { StepCartoonBadge } from './StepCartoonBadge';
 
 const RICH_NARRATIVES = {
   red_hood: {
@@ -119,7 +120,10 @@ function StoryModal({ story, onClose, onLoadDebugger, onActivityDone }) {
             <div className="story-modal-steps">
               {story.sentenceMappings.map((map) => (
                 <div key={map.stepNumber} className="story-modal-step">
-                  <div className="sms-num">Step {map.stepNumber}</div>
+                  <div className="sms-header-row">
+                    <div className="sms-num">Step {map.stepNumber}</div>
+                    <StepCartoonBadge storyId={story.id} stepNumber={map.stepNumber} />
+                  </div>
                   <div className="sms-body">
                     <p className="sms-sentence">"{map.sentence}"</p>
                     <div className="sms-code-row">

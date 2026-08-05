@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Sparkles, Code2, Star, X, ChevronRight, ArrowRight, Zap } from 'lucide-react';
+import { StoryCartoonBanner } from './StoryCartoonBanner';
 
 const RICH_NARRATIVES = {
   red_hood: {
@@ -84,6 +85,9 @@ function StoryModal({ story, onClose, onLoadDebugger, onActivityDone }) {
 
         {/* Modal Body */}
         <div className="story-modal-body">
+          {/* Animated Cartoon Illustration Banner */}
+          <StoryCartoonBanner story={story} />
+
           {/* Full Narrative */}
           <div className="story-modal-section">
             <div className="story-modal-section-title">
@@ -242,6 +246,7 @@ export function Page1Stories({
               onClick={() => handleCardClick(story, isUnlocked, globalIdx)}
               title={!isUnlocked ? `Complete Story ${globalIdx} to unlock` : `Click to open ${story.title}`}
             >
+              <StoryCartoonBanner story={story} isThumbnail={true} />
               <div className="sc-header">
                 <span className="sc-icon">{isUnlocked ? story.icon : '🔒'}</span>
                 <div className="sc-badges-wrap">

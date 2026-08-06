@@ -181,13 +181,20 @@ const [unlockedStories, setUnlockedStories] = useState(['red_hood']);// ['red_ho
 ## 8. Styling Tokens & Design System (`styles.css`)
 
 ```css
-/* Color System */
---bg-dark: #0f172a;          /* Slate 900 background */
---card-bg: rgba(30, 41, 59, 0.7); /* Glassmorphism slate */
---accent-purple: #9333ea;    /* Primary brand purple */
---accent-red: #ef4444;       /* Exception red alert */
---accent-gold: #fbbf24;      /* Highlight gold */
---accent-cyan: #38bdf8;      /* Code cyan */
+/* Soft Pastel Color System */
+--bg-main:        #FFFDF5; /* Warm White canvas */
+--bg-secondary:   #F8FAFC; /* Soft Off-White */
+--bg-card:        #FFFFFF; /* Pure White card background */
+--yellow:         #FFF4C2; /* Soft Yellow accent */
+--blue:           #DDEEFF; /* Sky Blue accent */
+--mint:           #DDF8E8; /* Mint Green accent */
+--lavender:       #E9E0FF; /* Soft Lavender accent */
+--pink:           #FFE4EC; /* Rosy Pink accent */
+--text-primary:   #2D3748; /* Primary dark text */
+--text-heading:   #1E1B4B; /* Deep Indigo heading text */
+--text-secondary: #6B7280; /* Secondary slate text */
+--border:         #E8EAF0; /* Light pastel border */
+--shadow-soft:    0 6px 18px rgba(0,0,0,0.07);
 
 /* Micro-Animations */
 @keyframes scb-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }

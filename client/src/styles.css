@@ -4701,28 +4701,28 @@ meter {
    CLEAN TOP HEADER TOOLBAR
    ===================================================== */
 .studio-toolbar-banner-clean {
-  background: linear-gradient(135deg, #EAF6FF 0%, #DBEAFE 50%, #E0F2FE 100%);
-  border: 1.5px solid #7DD3FC;
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.14);
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
 }
 
 .story-title-box-clean h2 {
-  margin: 0 0 6px;
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #0C3B6E;
-  letter-spacing: -0.02em;
+  margin: 0 0 6px !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+  color: #1E1B4B !important;
+  letter-spacing: -0.02em !important;
 }
 
 .story-title-box-clean p {
-  margin: 0;
-  color: #1E5A8A;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  font-weight: 500;
+  margin: 0 !important;
+  color: #374151 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
 }
 
 /* =====================================================
@@ -6213,19 +6213,19 @@ select {
    16. STEPPER NAVIGATION BAR (White, clean, blue accents)
    ---------------------------------------------------------------- */
 .stepper-header-bar {
-  background: #FFFFFF !important;
-  border: 1.5px solid var(--border) !important;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: var(--radius-lg) !important;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05) !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
 }
 .stepper-stage-chip {
-  background: linear-gradient(135deg, #60A5FA, #A78BFA) !important;
-  color: #FFFFFF !important;
+  background: #EDE9FE !important;
+  color: #4C1D95 !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: 20px !important;
-  font-weight: 700 !important;
-  border: none !important;
+  font-weight: 800 !important;
 }
-.stepper-stage-title { color: var(--text-primary) !important; font-weight: 700 !important; }
+.stepper-stage-title { color: #1E1B4B !important; font-weight: 800 !important; }
 
 .stepper-chip {
   background: #F8FAFC !important;
@@ -6844,12 +6844,12 @@ body,
 }
 
 .stepper-header-bar {
-  background: linear-gradient(135deg, #EAF6FF 0%, #DBEAFE 50%, #E0F2FE 100%) !important;
-  background-color: #EAF6FF !important;
-  border: 1.5px solid #7DD3FC !important;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  background-color: #F5F0FF !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: 18px !important;
-  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.14) !important;
-  color: #0C3B6E !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
+  color: #1E1B4B !important;
 }
 
 /* Hover & Active States for Story Cards — Pastel Peach Glow */

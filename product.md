@@ -6,7 +6,7 @@
 
 ## 1. Product Vision
 
-**PyBe (Python + Be a Debugger)** is an interactive, gamified educational platform that teaches Python exception handling through 10 fairy-tale stories. It transforms abstract programming concepts — `try`, `except`, `else`, `finally`, `raise` — into vivid narrative moments that learners can see, feel, and play through.
+**PyBe** is an interactive, gamified educational platform that teaches Python exception handling through 10 fairy-tale stories. It transforms abstract programming concepts — `try`, `except`, `else`, `finally`, `raise` — into vivid narrative moments that learners can see, feel, and play through.
 
 ### Mission Statement
 > Make Python exception handling intuitive, memorable, and genuinely enjoyable for every beginner and intermediate programmer — by grounding it in stories they already know and love.

@@ -7,8 +7,8 @@ import threePigsImg from '../assets/three_pigs.jpg';
 import hanselGretelImg from '../assets/hansel_gretel.jpg';
 import jackBeanstalkImg from '../assets/jack_beanstalk.jpg';
 import aladdinGenieImg from '../assets/aladdin_genie.jpg';
-import cinderellaImg from '../assets/cinderella.svg';
-import piedPiperImg from '../assets/pied_piper.svg';
+import cinderellaImg from '../assets/cinderella.jpg';
+import piedPiperImg from '../assets/pied_piper.jpg';
 
 const STORY_IMAGES = {
   red_hood: redHoodImg,

@@ -5,6 +5,10 @@ import goldilocksImg from '../assets/goldilocks.jpg';
 import criedWolfImg from '../assets/cried_wolf.jpg';
 import threePigsImg from '../assets/three_pigs.jpg';
 import hanselGretelImg from '../assets/hansel_gretel.jpg';
+import jackBeanstalkImg from '../assets/jack_beanstalk.jpg';
+import aladdinGenieImg from '../assets/aladdin_genie.jpg';
+import cinderellaImg from '../assets/cinderella.svg';
+import piedPiperImg from '../assets/pied_piper.svg';
 
 const STORY_IMAGES = {
   red_hood: redHoodImg,
@@ -13,9 +17,13 @@ const STORY_IMAGES = {
   cried_wolf: criedWolfImg,
   three_pigs: threePigsImg,
   hansel_gretel: hanselGretelImg,
+  jack_beanstalk: jackBeanstalkImg,
+  aladdin_genie: aladdinGenieImg,
+  cinderella: cinderellaImg,
+  pied_piper: piedPiperImg,
 };
 
-export function StoryCartoonBanner({ story, isThumbnail = false }) {
+export function StoryCartoonBanner({ story, isThumbnail = false, mode = 'both' }) {
   const storyId = story.id;
   const imageSrc = STORY_IMAGES[storyId];
 
@@ -547,6 +555,23 @@ export function StoryCartoonBanner({ story, isThumbnail = false }) {
         return null;
     }
   };
+
+  if (mode === 'imageOnly') {
+    if (!imageSrc) return null;
+    return (
+      <div className="story-cartoon-image-card is-standalone-card">
+        <img src={imageSrc} alt={`${story.title} Cartoon`} className="story-cartoon-img" />
+      </div>
+    );
+  }
+
+  if (mode === 'illustrationOnly') {
+    return (
+      <div className="story-cartoon-illustration-card">
+        {renderIllustration()}
+      </div>
+    );
+  }
 
   return (
     <div className={`story-cartoon-banner-wrapper ${isThumbnail ? 'is-thumbnail' : 'is-full'}`}>

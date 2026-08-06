@@ -69,85 +69,93 @@ function StoryModal({ story, onClose, onLoadDebugger, onActivityDone }) {
   return (
     <div className="story-modal-backdrop" onClick={onClose}>
       <div className="story-modal-panel" onClick={(e) => e.stopPropagation()}>
-        {/* Modal Header */}
-        <div className="story-modal-header">
-          <div className="story-modal-hero">
-            <span className="story-modal-icon">{story.icon}</span>
-            <div>
-              <span className="story-modal-error-badge">{story.errorType}</span>
-              <h2 className="story-modal-title">{story.title}</h2>
-              <p className="story-modal-concept">🐍 Python Concept: <strong>{story.pythonConcept}</strong></p>
-            </div>
+        {/* Floating Close Button */}
+        <button className="story-modal-close-floating" onClick={onClose} aria-label="Close">
+          <X size={20} />
+        </button>
+
+        {/* Scrollable Container containing all 3 sequential parts */}
+        <div className="story-modal-scroll-container">
+          
+          {/* FIRST: Story Header Illustration Image */}
+          <div className="story-detail-part part-1-header-image">
+            <StoryCartoonBanner story={story} mode="imageOnly" />
           </div>
-          <button className="story-modal-close" onClick={onClose} aria-label="Close">
-            <X size={20} />
-          </button>
-        </div>
 
-        {/* Modal Body */}
-        <div className="story-modal-body">
-          {/* Animated Cartoon Illustration Banner */}
-          <StoryCartoonBanner story={story} />
-
-          {/* Full Narrative */}
-          <div className="story-modal-section">
-            <div className="story-modal-section-title">
-              <Sparkles size={16} />
-              <span>Full Story</span>
-            </div>
-            <div className="story-modal-narrative">
-              <div className="story-modal-narrative-block start">
-                <span className="snb-label">🎬 The Start</span>
-                <p>{narrative.start}</p>
-              </div>
-              <div className="story-modal-narrative-block conflict">
-                <span className="snb-label">⚡ The Conflict</span>
-                <p>{narrative.plot}</p>
-              </div>
-              <div className="story-modal-narrative-block mapping">
-                <span className="snb-label">🛠️ Python Exception Mapping</span>
-                <p>{narrative.mapping}</p>
+          {/* Story Title & Meta Info Header */}
+          <div className="story-modal-header-block">
+            <div className="story-modal-hero">
+              <span className="story-modal-icon">{story.icon}</span>
+              <div>
+                <span className="story-modal-error-badge">{story.errorType}</span>
+                <h2 className="story-modal-title">{story.title}</h2>
+                <p className="story-modal-concept">🐍 Python Concept: <strong>{story.pythonConcept}</strong></p>
               </div>
             </div>
           </div>
 
-          {/* Step Mappings */}
-          <div className="story-modal-section">
-            <div className="story-modal-section-title">
-              <BookOpen size={16} />
-              <span>Story Sentences to Code Line Mapping</span>
-            </div>
-            <div className="story-modal-steps">
-              {story.sentenceMappings.map((map) => (
-                <div key={map.stepNumber} className="story-modal-step">
-                  <div className="sms-header-row">
-                    <div className="sms-num">Step {map.stepNumber}</div>
-                    <StepCartoonBadge storyId={story.id} stepNumber={map.stepNumber} />
-                  </div>
-                  <div className="sms-body">
-                    <p className="sms-sentence">"{map.sentence}"</p>
-                    <div className="sms-code-row">
-                      <ArrowRight size={13} className="sms-arrow" />
-                      <code className="sms-code">{map.codeLine}</code>
-                      <span className="sms-tag">{map.conceptTag}</span>
-                    </div>
-                    <small className="sms-exp">💡 {map.explanation}</small>
-                  </div>
+          {/* THIRD: The rest of the text content below it */}
+          <div className="story-detail-part part-3-text-content">
+            {/* Full Story Section */}
+            <div className="story-modal-section">
+              <div className="story-modal-section-title">
+                <Sparkles size={16} />
+                <span>Full Story</span>
+              </div>
+              <div className="story-modal-narrative">
+                <div className="story-modal-narrative-block start">
+                  <span className="snb-label">🎬 The Start</span>
+                  <p>{narrative.start}</p>
                 </div>
-              ))}
+                <div className="story-modal-narrative-block conflict">
+                  <span className="snb-label">⚡ The Conflict</span>
+                  <p>{narrative.plot}</p>
+                </div>
+                <div className="story-modal-narrative-block mapping">
+                  <span className="snb-label">🛠️ Python Exception Mapping</span>
+                  <p>{narrative.mapping}</p>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* CTA — Open in Debugger */}
-          <div className="story-modal-cta">
-            <button
-              className="story-modal-debugger-btn"
-              onClick={() => { onActivityDone && onActivityDone(); onClose(); onLoadDebugger(story.id); }}
-            >
-              <Zap size={17} />
-              Open in Debugger Simulator
-              <ArrowRight size={16} />
-            </button>
+            {/* Story Sentences to Code Line Mapping Section */}
+            <div className="story-modal-section">
+              <div className="story-modal-section-title">
+                <BookOpen size={16} />
+                <span>Story Sentences to Code Line Mapping</span>
+              </div>
+              <div className="story-modal-steps">
+                {story.sentenceMappings.map((map) => (
+                  <div key={map.stepNumber} className="story-modal-step">
+                    <div className="sms-header-row">
+                      <div className="sms-num">Step {map.stepNumber}</div>
+                      <StepCartoonBadge storyId={story.id} stepNumber={map.stepNumber} />
+                    </div>
+                    <div className="sms-body">
+                      <p className="sms-sentence">"{map.sentence}"</p>
+                      <div className="sms-code-row">
+                        <ArrowRight size={13} className="sms-arrow" />
+                        <code className="sms-code">{map.codeLine}</code>
+                        <span className="sms-tag">{map.conceptTag}</span>
+                      </div>
+                      <small className="sms-exp">💡 {map.explanation}</small>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="story-modal-cta">
+              <button
+                className="story-modal-debugger-btn"
+                onClick={() => { onActivityDone && onActivityDone(); onClose(); onLoadDebugger(story.id); }}
+              >
+                <Zap size={17} />
+                Open in Debugger Simulator
+                <ArrowRight size={16} />
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
 
 ## 📖 Project Overview
 
-**PyBe** is an interactive educational platform designed to teach Python exception handling through immersive storybook experiences. Each story maps a classic fairy tale to a specific Python exception, walking learners through the full `try → except → else → finally` lifecycle using vivid characters, animated visuals, and hands-on interactive exercises.
+**PyBe** is an interactive educational platform designed to teach **Python exception** handling through immersive storybook experiences. Each story maps a classic fairy tale to a specific Python exception, walking learners through the full `try → except → else → finally` lifecycle using vivid characters, animated visuals, and hands-on interactive exercises.
 
 Learners progress through a structured curriculum:
 - **Browse** story cards on the dashboard

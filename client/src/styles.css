@@ -5661,18 +5661,18 @@ select {
 }
 .primer-header, .primer-header h2 { color: #065F46 !important; text-shadow: none !important; }
 
-/* Page 1 Hero — Soft Yellow/Gold */
+/* Page 1 Hero — Soft Lavender, Rosy, Sky Blue & White Gradient */
 .page1-hero {
-  background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%) !important;
-  border: 1.5px solid #FFE082 !important;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: var(--radius-lg) !important;
-  box-shadow: var(--shadow-soft) !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
 }
-.page1-hero-text h2 { color: #78350F !important; font-weight: 800 !important; text-shadow: none !important; }
-.page1-hero-text p  { color: #92400E !important; }
+.page1-hero-text h2 { color: #1E1B4B !important; font-weight: 800 !important; text-shadow: none !important; }
+.page1-hero-text p  { color: #374151 !important; font-weight: 500 !important; }
 .page1-badge {
-  background: var(--yellow) !important; color: var(--yellow-text) !important;
-  border: 1px solid var(--yellow-border) !important; border-radius: 20px !important; font-weight: 700 !important;
+  background: #EDE9FE !important; color: #4C1D95 !important;
+  border: 1px solid #C4B5FD !important; border-radius: 20px !important; font-weight: 700 !important;
 }
 
 /* CSP Hero — Pink/Rose */
@@ -6130,15 +6130,39 @@ select {
 .bug-scene-desc { color: var(--pink-text) !important; }
 
 .bug-ide-workspace {
-  background: #1E293B !important;
-  border: 1.5px solid #334155 !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #BAE6FD !important;
   border-radius: var(--radius-md) !important;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.08) !important;
 }
-.line-numbers-gutter { background: #162032 !important; border-right: 1px solid #334155 !important; }
-.ln-num              { color: #475569 !important; }
+.bug-ide-tab-bar {
+  background: #F0F7FF !important;
+  border-bottom: 1.5px solid #BAE6FD !important;
+}
+.bug-ide-tab {
+  background: #E0F2FE !important;
+  color: #0C3B6E !important;
+  border-right: 1.5px solid #BAE6FD !important;
+  font-weight: 700 !important;
+}
+.bug-ide-tab.active::after {
+  background: #0284C7 !important;
+}
+.line-numbers-gutter { 
+  background: #F8FAFC !important; 
+  border-right: 1.5px solid #E2E8F0 !important; 
+}
+.ln-num { 
+  color: #475569 !important; 
+  font-weight: 700 !important;
+}
 .bug-code-pre-ide    { background: transparent !important; }
-.editor-code-line    { color: #E2E8F0 !important; font-family: 'Fira Code','Consolas',monospace !important; }
-.editor-code-line:hover { background: rgba(255,255,255,0.04) !important; }
+.editor-code-line    { 
+  color: #0F172A !important; 
+  font-family: 'Fira Code','Consolas',monospace !important; 
+  font-weight: 600 !important;
+}
+.editor-code-line:hover { background: #F0F7FF !important; }
 
 .bug-options-title { color: var(--text-secondary) !important; }
 
@@ -6307,15 +6331,16 @@ select {
    20. CONCEPT FLIP CARDS (Alternating Yellow + Mint)
    ---------------------------------------------------------------- */
 .flip-section {
-  background: linear-gradient(135deg, #FFFDE7 0%, #F0FEFB 100%) !important;
-  border: 1.5px solid #FFE082 !important;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: var(--radius-lg) !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
 }
-.flip-header-text h2 { color: var(--text-primary) !important; font-weight: 800 !important; }
-.flip-header-text p  { color: var(--text-secondary) !important; }
-.section-label { background: var(--yellow) !important; color: var(--yellow-text) !important; border: 1px solid var(--yellow-border) !important; border-radius: 8px !important; }
-.reset-btn { background: #F3F4F6 !important; border: 1px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: 8px !important; }
-.reset-btn:hover { background: var(--pink) !important; border-color: var(--pink-border) !important; color: var(--pink-text) !important; }
+.flip-header-text h2 { color: #1E1B4B !important; font-weight: 800 !important; }
+.flip-header-text p  { color: #374151 !important; font-weight: 500 !important; }
+.section-label { background: #EDE9FE !important; color: #4C1D95 !important; border: 1px solid #C4B5FD !important; border-radius: 8px !important; font-weight: 700 !important; }
+.reset-btn { background: #F3F4F6 !important; border: 1px solid #E5E7EB !important; color: #374151 !important; border-radius: 8px !important; font-weight: 600 !important; }
+.reset-btn:hover { background: #FFE4EC !important; border-color: #F9A8D4 !important; color: #9D174D !important; }
 
 .flip-front { background: linear-gradient(145deg, #FFFDE7, #FFF9C4) !important; border: 1.5px solid #FFE082 !important; border-radius: var(--radius-md) !important; }
 .flip-back  { background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important; border-radius: var(--radius-md) !important; }
@@ -6338,9 +6363,11 @@ select {
 .csp-field-name  { color: var(--text-secondary) !important; }
 .csp-field-input { background: #FAFBFF !important; border: 1.5px solid var(--border) !important; color: var(--text-primary) !important; border-radius: var(--radius-sm) !important; }
 .csp-field-input:focus { border-color: #F9A8D4 !important; background: var(--pink) !important; }
-.csp-editor-container { background: #1E293B !important; border-radius: var(--radius-md) !important; }
-.csp-code-output  { color: #A5F3FC !important; }
-.csp-code-placeholder p { color: #94A3B8 !important; }
+.csp-editor-container { background: #FFFFFF !important; border: 1.5px solid #BAE6FD !important; border-radius: var(--radius-md) !important; }
+.csp-editor-gutter { background: #F8FAFC !important; border-right: 1.5px solid #E2E8F0 !important; }
+.csp-ln { color: #475569 !important; font-weight: 700 !important; }
+.csp-code-output  { color: #0F172A !important; font-weight: 600 !important; }
+.csp-code-placeholder p { color: #64748B !important; }
 .csp-result-badge { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 20px !important; }
 .csp-result-hint  { color: var(--text-secondary) !important; }
 .csp-result-hint code { background: var(--lavender) !important; color: var(--lavender-text) !important; border-radius: 4px !important; }
@@ -6714,36 +6741,32 @@ body,
   border-radius: 20px !important;
 }
 
-/* Other Hero Banners — Soft Peach & Cream */
+/* Other Hero Banners — Soft Lavender, Rosy, Sky Blue & White Blend */
 .concept-primer-hero,
-.page1-hero,
 .csp-hero {
-  background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%) !important;
-  border: 1.5px solid #FED7AA !important;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FFF0F6 35%, #E0F2FE 70%, #FFFFFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
   border-radius: 20px !important;
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.08) !important;
-  color: #1E293B !important;
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.12) !important;
+  color: #1E1B4B !important;
 }
 
 .primer-header h2,
-.page1-hero-text h2,
 .csp-hero-title {
-  color: #9A3412 !important;
+  color: #1E1B4B !important;
   font-weight: 800 !important;
   text-shadow: none !important;
 }
 
-.page1-hero-text p,
 .csp-hero-sub {
-  color: #C2410C !important;
+  color: #374151 !important;
   font-weight: 500 !important;
 }
 
-.page1-badge,
 .csp-hero-badge {
-  background: #FFEDD5 !important;
-  color: #9A3412 !important;
-  border: 1px solid #FDBA74 !important;
+  background: #EDE9FE !important;
+  color: #4C1D95 !important;
+  border: 1px solid #C4B5FD !important;
   font-weight: 700 !important;
   border-radius: 20px !important;
 }

@@ -455,46 +455,7 @@ export function StoryCartoonBanner({ story, isThumbnail = false, mode = 'both' }
         return null;
 
       case 'pied_piper':
-
-            {/* Flute Player / Pied Piper */}
-            <g className="scb-bounce">
-              <circle cx="140" cy="110" r="14" fill="#fed7aa" />
-              <path d="M125 124 Q140 115 155 124 L150 170 L130 170 Z" fill="#9333ea" />
-              {/* Flute */}
-              <rect x="145" y="112" width="50" height="5" fill="#eab308" rx="2" transform="rotate(-10 145 112)" />
-              {/* Musical Notes */}
-              <text x="200" y="100" fill="#fde047" fontSize="16" className="scb-float">🎶</text>
-              <text x="220" y="85" fill="#fde047" fontSize="14" className="scb-float-slow">🎵</text>
-            </g>
-
-            {/* Rats Marching */}
-            <g className="scb-dash">
-              <ellipse cx="280" cy="160" rx="14" ry="8" fill="#475569" />
-              <circle cx="292" cy="157" r="4" fill="#475569" />
-              <ellipse cx="330" cy="162" rx="14" ry="8" fill="#475569" />
-              <circle cx="342" cy="159" r="4" fill="#475569" />
-              <ellipse cx="380" cy="160" rx="14" ry="8" fill="#475569" />
-              <circle cx="392" cy="157" r="4" fill="#475569" />
-            </g>
-
-            {/* RAM Memory Gauge Overflow */}
-            <g className="scb-pulse">
-              <rect x="430" y="95" width="130" height="65" rx="10" fill="#020617" stroke="#ef4444" strokeWidth="2" />
-              <text x="495" y="117" textAnchor="middle" fill="#cbd5e1" fontSize="11" fontWeight="bold">RAM Allocation</text>
-              <text x="495" y="137" textAnchor="middle" fill="#f87171" fontSize="14" fontWeight="bold">10^12 Rats!</text>
-              <rect x="440" y="145" width="110" height="8" rx="4" fill="#7f1d1d" />
-              <rect x="440" y="145" width="110" height="8" rx="4" fill="#ef4444" />
-            </g>
-
-            {/* Memory Error Banner */}
-            <g className="scb-float-slow">
-              <rect x="160" y="20" width="280" height="34" rx="17" fill="rgba(239, 68, 68, 0.25)" stroke="#ef4444" strokeWidth="1.5" />
-              <text x="300" y="41" textAnchor="middle" fill="#fca5a5" fontSize="13" fontWeight="bold" fontFamily="monospace">
-                🌊 MemoryError: System RAM Exhausted!
-              </text>
-            </g>
-          </svg>
-        );
+        return null;
 
       default:
         return null;

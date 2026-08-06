@@ -32,7 +32,7 @@ Learners progress through a structured curriculum:
 - **Story Sentences to Code Line Mapping section**: every plot moment mapped to real Python code, with animated step badges
 - **One-click launch** into the interactive Debugger Simulator
 
-### 🎮 Interactive Learning Stages (7 Stages Per Story)
+### 🎮 Interactive Learning Stages (9 Stages Per Story)
 
 | Stage | Component | Description |
 |---|---|---|
@@ -40,25 +40,26 @@ Learners progress through a structured curriculum:
 | 2 | **Debugger Simulator** | Step through code line-by-line and trigger real exceptions |
 | 3 | **Execution Flowchart** | Visualize try/except flow paths interactively |
 | 4 | **Line-by-Line Generator** | Watch code execute with Python explanation per line |
-| 5 | **Bug Hunter Game** | Multiple-choice game to identify and fix code bugs |
+| 5 | **Bug Hunter Game** | Multiple-choice game to identify and fix code bugs (Score ≥ 80%) |
 | 6 | **Concept Flip Cards** | Spaced-repetition flash cards for concept mastery |
-| 7 | **Sentence Ordering Puzzles** | Drag-and-drop story sentences to correct Python order |
+| 7 | **Sentence Ordering Puzzles** | Drag-and-drop story sentences into correct Python order |
 | 8 | **AI Reasoning Sandbox** | Generate and test custom exception scenarios |
+| 9 | **Custom Story Playground** | Build a custom exception story to unlock the next story |
 
 ### 🐍 Python Exceptions Covered
 
-| # | Story | Exception / Concept |
-|---|---|---|
-| 1 | 🐺 Little Red Riding Hood | `AttributeError` — calling a method that doesn't exist |
-| 2 | 🐢 Tortoise & The Hare | `ZeroDivisionError` + `else` block |
-| 3 | 🥣 Goldilocks & Three Bears | `IndexError` + `KeyError` |
-| 4 | 📯 The Boy Who Cried Wolf | `raise` + Custom Exception classes |
-| 5 | 🐷 The Three Little Pigs | `finally` — guaranteed cleanup block |
-| 6 | 🍞 Hansel & Gretel | `FileNotFoundError` |
-| 7 | 🫘 Jack & The Beanstalk | `TypeError` — data type mismatch |
-| 8 | 🧞 Aladdin & The Genie | `PermissionError` + `AssertionError` |
-| 9 | 👠 Cinderella | `TimeoutError` + `try/except/else/finally` |
-| 10 | 🎶 Pied Piper of Hamelin | `MemoryError` — system resource exhaustion |
+| # | Story | Exception / Concept | Illustration Asset |
+|---|---|---|---|
+| 1 | 🐺 Little Red Riding Hood | `AttributeError` — calling a method that doesn't exist | `red_hood.jpg` |
+| 2 | 🐢 Tortoise & The Hare | `ZeroDivisionError` + `else` block | `tortoise_hare.jpg` |
+| 3 | 🥣 Goldilocks & Three Bears | `IndexError` + `KeyError` | `goldilocks.jpg` |
+| 4 | 📯 The Boy Who Cried Wolf | `raise` + Custom Exception classes | `cried_wolf.jpg` |
+| 5 | 🐷 The Three Little Pigs | `finally` — guaranteed cleanup block | `three_pigs.jpg` |
+| 6 | 🍞 Hansel & Gretel | `FileNotFoundError` | `hansel_gretel.jpg` |
+| 7 | 🫘 Jack & The Beanstalk | `TypeError` — data type mismatch | `jack_beanstalk.jpg` |
+| 8 | 🧞 Aladdin & The Genie | `PermissionError` + `AssertionError` | `aladdin_genie.jpg` |
+| 9 | 👠 Cinderella | `TimeoutError` — midnight spell expiry | `cinderella.jpg` |
+| 10 | 🎶 Pied Piper of Hamelin | `MemoryError` — system resource exhaustion | `pied_piper.jpg` |
 
 ### 🎨 Visual Design
 - **Dark glassmorphism UI** with animated gradients and vibrant story-specific color palettes
@@ -158,7 +159,7 @@ pybe/
 │   │   ├── storyData.js      # All story narrative data, sentence mappings,
 │   │   │                     #   BugHunter questions, AI sandbox prompts
 │   │   ├── styles.css        # All global styles, animations, themes
-│   │   ├── assets/           # Story illustration images (JPG + SVG)
+│   │   ├── assets/           # Story illustration images (JPG)
 │   │   │   ├── red_hood.jpg
 │   │   │   ├── tortoise_hare.jpg
 │   │   │   ├── goldilocks.jpg
@@ -167,8 +168,8 @@ pybe/
 │   │   │   ├── hansel_gretel.jpg
 │   │   │   ├── jack_beanstalk.jpg
 │   │   │   ├── aladdin_genie.jpg
-│   │   │   ├── cinderella.svg
-│   │   │   └── pied_piper.svg
+│   │   │   ├── cinderella.jpg
+│   │   │   └── pied_piper.jpg
 │   │   └── components/       # UI Components
 │   │       ├── Page1Stories.jsx         # Story dashboard & detail modal
 │   │       ├── StoryCartoonBanner.jsx   # Illustration renderer (image + SVG modes)

@@ -293,7 +293,7 @@ ExceptionStudio (root state owner)
 │                                                                 │
 │  storyData.js   [All content: narratives, questions, mappings]  │
 │  styles.css     [Animations, themes, glassmorphism layout]      │
-│  assets/        [10 story illustration images JPG/SVG]          │
+│  assets/        [10 story raster JPG illustration images]         │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               │ HTTP API (future)

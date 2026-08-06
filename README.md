@@ -62,7 +62,7 @@ Learners progress through a structured curriculum:
 | 10 | 🎶 Pied Piper of Hamelin | `MemoryError` — system resource exhaustion | `pied_piper.jpg` |
 
 ### 🎨 Visual Design
-- **Dark glassmorphism UI** with animated gradients and vibrant story-specific color palettes
+- **Soft Pastel Storybook UI** with multi-stop pastel gradients (Soft Lavender, Rosy Pink, Sky Blue, Warm White) and high-contrast dark typography for optimal readability
 - **High-quality storybook cartoon illustrations** for all 10 stories
 - **Animated SVG interactive banners** with per-story exception code badges
 - **Step cartoon badges** with CSS animations (`bounce`, `float`, `wiggle`, `pulse`) in each sentence-to-code mapping card

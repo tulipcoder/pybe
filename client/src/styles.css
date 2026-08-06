@@ -26,7 +26,7 @@ select {
 }
 
 .sidebar {
-  background: #16231f;
+  background: #e7eceb;
   color: #f8f4ec;
   padding: 24px;
   display: flex;
@@ -131,11 +131,13 @@ select {
 
 .hero {
   min-height: 230px;
-  color: #fff;
-  background: linear-gradient(135deg, rgba(18,34,30,.92), rgba(36,77,67,.78)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80');
+  color: #1F3B5B;
+  background: linear-gradient(135deg, #EAF6FF 0%, #E9FFF6 40%, #F6F0FF 75%, #FFFFFF 100%);
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
+  border-radius: 20px;
+  border: 1.5px solid #BAE6FD;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.12);
   padding: 32px;
   display: flex;
   align-items: flex-end;
@@ -145,10 +147,11 @@ select {
 
 .hero p {
   margin: 0 0 10px;
-  color: #d8f07c;
+  color: #5F7D95;
   text-transform: uppercase;
   letter-spacing: .08em;
   font-size: .78rem;
+  font-weight: 600;
 }
 
 .hero h1 {
@@ -157,6 +160,7 @@ select {
   font-size: clamp(2rem, 5vw, 4.7rem);
   line-height: .98;
   letter-spacing: 0;
+  color: #1F3B5B;
 }
 
 .hero-stats {
@@ -166,19 +170,21 @@ select {
 
 .hero-stats span {
   min-width: 88px;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(186, 230, 253, 0.8);
+  border-radius: 12px;
   padding: 14px;
   font-size: 1.7rem;
   font-weight: 800;
+  color: #0369A1;
+  backdrop-filter: blur(4px);
 }
 
 .hero-stats small {
   display: block;
   font-size: .75rem;
   font-weight: 500;
-  color: #d9e2dc;
+  color: #5F7D95;
 }
 
 .main-grid {
@@ -627,8 +633,8 @@ meter {
 
 .story-card:hover {
   transform: translateY(-3px);
-  border-color: #1a2e29;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #f2f4f3;
+  box-shadow: 0 10px 24px rgba(238, 235, 235, 0.988);
 }
 
 .story-card.active {
@@ -5424,6 +5430,1142 @@ meter {
   75% { transform: rotate(3deg); transform-origin: center; }
 }
 
+.step-cartoon-badge-box.story-theme-three_pigs { border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.1); }
+.step-cartoon-badge-box.story-theme-hansel_gretel { border-color: rgba(14, 165, 233, 0.4); background: rgba(14, 165, 233, 0.1); }
+.step-cartoon-badge-box.story-theme-jack_beanstalk { border-color: rgba(34, 197, 94, 0.4); background: rgba(34, 197, 94, 0.1); }
+.step-cartoon-badge-box.story-theme-aladdin_genie { border-color: rgba(234, 179, 8, 0.4); background: rgba(234, 179, 8, 0.1); }
+.step-cartoon-badge-box.story-theme-cinderella { border-color: rgba(192, 132, 252, 0.4); background: rgba(192, 132, 252, 0.1); }
+.step-cartoon-badge-box.story-theme-pied_piper { border-color: rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.1); }
+
+.sms-num {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6B5CE7;
+  background: #E9E0FF;
+  border: 1px solid #C4B5FD;
+  border-radius: 8px;
+  padding: 4px 10px;
+  height: fit-content;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   ✨ MAGICAL PASTEL STORYBOOK THEME ✨
+   Warm White · Sky Blue · Soft Yellow · Mint Green · Lavender · Pink
+   Cheerful · Educational · Easy on the Eyes · Premium Feel
+   All !important rules ensure override of original dark theme.
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   DESIGN TOKENS (CSS Custom Properties)
+   ---------------------------------------------------------------- */
+:root {
+  --bg-main:        #FFFDF5;
+  --bg-secondary:   #F8FAFC;
+  --bg-card:        #FFFFFF;
+  --yellow:         #FFF4C2;
+  --yellow-border:  #FFE082;
+  --yellow-text:    #7A5900;
+  --blue:           #DDEEFF;
+  --blue-border:    #93C5FD;
+  --blue-text:      #1D4ED8;
+  --mint:           #DDF8E8;
+  --mint-border:    #6EE7B7;
+  --mint-text:      #065F46;
+  --lavender:       #E9E0FF;
+  --lavender-border:#C4B5FD;
+  --lavender-text:  #4C1D95;
+  --pink:           #FFE4EC;
+  --pink-border:    #F9A8D4;
+  --pink-text:      #9D174D;
+  --text-primary:   #2D3748;
+  --text-secondary: #6B7280;
+  --border:         #E8EAF0;
+  --shadow-soft:    0 6px 18px rgba(0,0,0,0.07);
+  --shadow-card:    0 4px 12px rgba(0,0,0,0.06);
+  --radius-lg:      20px;
+  --radius-md:      14px;
+  --radius-sm:      10px;
+}
+
+/* ----------------------------------------------------------------
+   1. GLOBAL RESET — CANVAS & TYPOGRAPHY
+   ---------------------------------------------------------------- */
+:root,
+html,
+body,
+#root,
+.app-shell,
+.workspace,
+.exception-studio-container,
+.page1-root {
+  background-color: var(--bg-main) !important;
+  background:       var(--bg-main) !important;
+  color:            var(--text-primary) !important;
+  font-family: 'Inter', 'Google Sans', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* ----------------------------------------------------------------
+   2. SIDEBAR (White, warm shadow, cheerful brand)
+   ---------------------------------------------------------------- */
+.sidebar {
+  background: #FFFFFF !important;
+  border-right: 1px solid var(--border) !important;
+  box-shadow: 3px 0 16px rgba(0,0,0,0.05) !important;
+  color: var(--text-primary) !important;
+}
+
+.brand strong { color: var(--text-primary) !important; }
+.brand span   { color: var(--text-secondary) !important; }
+
+.search {
+  background: #F0F7FF !important;
+  border: 1.5px solid var(--blue-border) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.search input            { color: var(--text-primary) !important; }
+.search input::placeholder { color: #9CA3AF; }
+.search svg              { color: #60A5FA; }
+
+.sidebar select,
+select {
+  background: #FAFBFF !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+/* Scenario list in sidebar */
+.scenario {
+  background: #F8FBFF !important;
+  border: 1.5px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  transition: all 0.2s ease !important;
+}
+.scenario:hover {
+  background: var(--blue) !important;
+  border-color: var(--blue-border) !important;
+}
+.scenario.active {
+  background: var(--lavender) !important;
+  border-color: var(--lavender-border) !important;
+  color: var(--lavender-text) !important;
+  box-shadow: 0 3px 10px rgba(139,92,246,0.2) !important;
+}
+.scenario small { color: var(--text-secondary) !important; }
+
+/* Toggle buttons */
+.view-mode-toggle { background: #F0F4FF !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.toggle-btn       { color: var(--text-secondary) !important; border-radius: 8px !important; }
+.toggle-btn:hover { background: var(--yellow) !important; color: var(--yellow-text) !important; }
+.toggle-btn.active {
+  background: linear-gradient(135deg, #A78BFA, #818CF8) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 3px 10px rgba(139,92,246,0.3) !important;
+}
+
+/* ----------------------------------------------------------------
+   3. HERO BANNERS (Soft Gradient Accents per Section)
+   ---------------------------------------------------------------- */
+/* Studio hero — Lavender/Blue */
+.studio-hero {
+  background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 60%, #DBEAFE 100%) !important;
+  border: 1.5px solid #7DD3FC !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.15) !important;
+}
+.studio-title-box h1 { color: #0369A1 !important; font-weight: 800 !important; text-shadow: none !important; }
+.studio-title-box p  { color: #0284C7 !important; }
+.studio-badge {
+  background: #BAE6FD !important; color: #075985 !important;
+  border: 1px solid #7DD3FC !important; border-radius: 20px !important; font-weight: 700 !important;
+}
+
+/* Concept Primer — Mint/Green */
+.concept-primer-hero {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%) !important;
+  border: 1.5px solid var(--mint-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.primer-header, .primer-header h2 { color: #065F46 !important; text-shadow: none !important; }
+
+/* Page 1 Hero — Soft Yellow/Gold */
+.page1-hero {
+  background: linear-gradient(135deg, #FFFDE7 0%, #FFF9C4 100%) !important;
+  border: 1.5px solid #FFE082 !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.page1-hero-text h2 { color: #78350F !important; font-weight: 800 !important; text-shadow: none !important; }
+.page1-hero-text p  { color: #92400E !important; }
+.page1-badge {
+  background: var(--yellow) !important; color: var(--yellow-text) !important;
+  border: 1px solid var(--yellow-border) !important; border-radius: 20px !important; font-weight: 700 !important;
+}
+
+/* CSP Hero — Pink/Rose */
+.csp-hero {
+  background: linear-gradient(135deg, #FFF0F6 0%, #FFE4EC 100%) !important;
+  border: 1.5px solid var(--pink-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.csp-hero-title { color: #831843 !important; font-weight: 800 !important; text-shadow: none !important; }
+.csp-hero-sub   { color: #9D174D !important; }
+.csp-hero-badge {
+  background: var(--pink) !important; color: var(--pink-text) !important;
+  border: 1px solid var(--pink-border) !important; border-radius: 20px !important; font-weight: 700 !important;
+}
+
+/* ----------------------------------------------------------------
+   4. MAIN PANEL GRID — WHITE CARDS, ALTERNATING PASTEL TINTS
+   ---------------------------------------------------------------- */
+.panel {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Story Scene Card — Blue tint */
+.story-scene-card, .code-console-card {
+  background: #F0F8FF !important;
+  border: 1.5px solid #BAE6FD !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  color: var(--text-primary) !important;
+}
+.scene-header h3 { color: var(--blue-text) !important; font-weight: 700 !important; }
+
+/* Active Story Banner — Warm White */
+.active-story-banner {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+}
+.story-meta h2     { color: var(--text-primary) !important; font-weight: 800 !important; }
+.story-description { color: var(--text-secondary) !important; }
+
+/* Sub-tabs */
+.sub-tabs { border-top-color: var(--border) !important; }
+.sub-tab {
+  background: #F8FAFC !important; border: 1.5px solid var(--border) !important;
+  color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important;
+  transition: all 0.2s ease !important;
+}
+.sub-tab:hover  { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.sub-tab.active {
+  background: linear-gradient(135deg, #60A5FA, #818CF8) !important;
+  color: #FFFFFF !important; border-color: transparent !important;
+  box-shadow: 0 3px 10px rgba(99,102,241,0.25) !important;
+}
+
+/* ----------------------------------------------------------------
+   5. STORY CARDS GRID (Alternating Pastel)
+   ---------------------------------------------------------------- */
+.story-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+.story-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--blue-border) !important;
+  box-shadow: 0 10px 28px rgba(96,165,250,0.18) !important;
+}
+.story-card.active {
+  background: var(--blue) !important;
+  border-color: #60A5FA !important;
+  box-shadow: 0 8px 24px rgba(96,165,250,0.2) !important;
+}
+.story-card h3 { color: var(--text-primary) !important; font-weight: 700 !important; }
+.story-card small { color: var(--text-secondary) !important; }
+.story-card.active small { color: var(--blue-text) !important; }
+
+.error-tag {
+  background: var(--pink) !important; color: var(--pink-text) !important;
+  border: 1px solid var(--pink-border) !important; border-radius: 8px !important;
+}
+
+.completed-story-card {
+  background: var(--mint) !important;
+  border-color: var(--mint-border) !important;
+  box-shadow: 0 4px 14px rgba(110,231,183,0.18) !important;
+}
+
+/* Full story card list */
+.story-card-full {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: all 0.2s ease !important;
+}
+.story-card-full:hover    { border-color: #A78BFA !important; box-shadow: 0 8px 24px rgba(167,139,250,0.15) !important; transform: translateY(-3px) !important; }
+.story-card-full.selected { background: var(--lavender) !important; border-color: var(--lavender-border) !important; box-shadow: 0 6px 20px rgba(167,139,250,0.2) !important; }
+.sc-title          { color: var(--text-primary) !important; font-weight: 700 !important; }
+.sc-tagline,
+.sc-desc-snippet   { color: var(--text-secondary) !important; }
+.sc-concept        { color: var(--lavender-text) !important; font-weight: 600 !important; }
+.sc-footer         { border-top-color: var(--border) !important; }
+
+.sc-unlocked-badge { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 12px !important; font-weight: 600 !important; }
+.sc-locked-badge   { background: #F3F4F6 !important; color: #9CA3AF !important; border-color: var(--border) !important; }
+.locked-story-card { opacity: 0.55 !important; }
+
+/* ----------------------------------------------------------------
+   6. FILTER PILLS
+   ---------------------------------------------------------------- */
+.filter-pill {
+  background: #F3F4F6 !important; border: 1.5px solid var(--border) !important;
+  color: var(--text-secondary) !important; border-radius: 20px !important;
+  transition: all 0.18s ease !important;
+}
+.filter-pill:hover  { background: var(--yellow) !important; border-color: var(--yellow-border) !important; color: var(--yellow-text) !important; }
+.filter-pill.active { background: var(--yellow) !important; border-color: var(--yellow-border) !important; color: var(--yellow-text) !important; font-weight: 700 !important; }
+
+/* ----------------------------------------------------------------
+   7. FULL STORY SPOTLIGHT CARD (Soft Yellow tint)
+   ---------------------------------------------------------------- */
+.page1-spotlight-card {
+  background: #FFFEF8 !important;
+  border: 1.5px solid #FFE082 !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-soft) !important;
+}
+.spotlight-header h3    { color: #78350F !important; font-weight: 800 !important; }
+.spotlight-tagline      { color: var(--text-secondary) !important; }
+.spotlight-desc         { color: var(--text-primary) !important; }
+.spotlight-breakdown-hdr{ color: #7C3AED !important; font-weight: 700 !important; }
+.spotlight-meta-row     { background: #FFFDE7 !important; border: 1px solid #FFE082 !important; color: var(--text-primary) !important; border-radius: var(--radius-sm) !important; }
+
+/* Step cards within Spotlight — alternating pastel */
+.spotlight-step-item,
+.story-action-item {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+  transition: all 0.2s ease !important;
+}
+.spotlight-step-item:hover,
+.story-action-item:hover {
+  background: var(--blue) !important;
+  border-color: var(--blue-border) !important;
+}
+
+.step-num-pill {
+  background: var(--lavender) !important;
+  color: var(--lavender-text) !important;
+  border: 1px solid var(--lavender-border) !important;
+  font-weight: 700 !important; border-radius: 10px !important;
+}
+.step-sentence { color: var(--text-primary) !important; font-weight: 700 !important; }
+.step-exp      { color: var(--text-secondary) !important; font-weight: 500 !important; }
+.step-code-row { background: #F0F9FF !important; border: 1px solid #BAE6FD !important; border-radius: 8px !important; }
+.step-code-row code { color: #0369A1 !important; font-weight: 600 !important; font-family: 'Fira Code','Consolas',monospace !important; }
+.step-tag { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 8px !important; font-weight: 700 !important; }
+
+/* ----------------------------------------------------------------
+   8. SENTENCE STEPPER & LINE-BY-LINE GENERATOR
+   ---------------------------------------------------------------- */
+.sentence-stepper-column,
+.code-generator-column,
+.lbl-left-panel,
+.lbl-right-panel,
+.lbl-generator-root {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+.sentence-stepper-column h3,
+.code-generator-column h3 { color: var(--text-primary) !important; font-weight: 700 !important; }
+.sentence-stepper-column p,
+.code-generator-column p  { color: var(--text-secondary) !important; }
+
+.lbl-panel-hdr {
+  background: #F0F7FF !important;
+  border-bottom: 1px solid #BAE6FD !important;
+  color: var(--blue-text) !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+}
+.lbl-counter-chip     { background: var(--lavender) !important; color: var(--lavender-text) !important; }
+.lbl-progress-bar-wrap{ background: #E5E7EB !important; border-radius: 8px !important; }
+.lbl-progress-bar-fill{ background: linear-gradient(90deg, #60A5FA, #A78BFA) !important; }
+
+/* Sentence item cards — alternating blue/lavender tints */
+.sentence-item-card {
+  background: #FAFCFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+.sentence-item-card:hover  { background: var(--blue) !important; border-color: var(--blue-border) !important; }
+.sentence-item-card.active {
+  background: var(--lavender) !important;
+  border-color: var(--lavender-border) !important;
+  box-shadow: 0 4px 14px rgba(167,139,250,0.18) !important;
+}
+.sentence-item-card.active .sentence-explanation { color: var(--lavender-text) !important; }
+
+.sentence-text        { color: var(--text-primary) !important; font-weight: 700 !important; }
+.sentence-explanation { color: var(--text-secondary) !important; }
+
+/* LBL sentence cards */
+.lbl-sentence-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+  transition: all 0.2s ease !important;
+}
+.lbl-sentence-card:hover { background: var(--yellow) !important; border-color: var(--yellow-border) !important; }
+.lbl-sentence-card.active {
+  background: var(--yellow) !important;
+  border-color: #FBBF24 !important;
+  box-shadow: 0 4px 14px rgba(251,191,36,0.2) !important;
+}
+.lbl-sentence-card.done  { background: var(--mint) !important; border-color: var(--mint-border) !important; }
+.lbl-step-num     { color: #92400E !important; font-weight: 700 !important; }
+.lbl-tag          { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 8px !important; font-weight: 600 !important; }
+.lbl-sentence-text{ color: var(--text-primary) !important; font-weight: 700 !important; }
+.lbl-exp          { color: var(--text-secondary) !important; }
+
+/* LBL buttons */
+.lbl-btn { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.lbl-btn:hover:not(:disabled) { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.lbl-btn.auto { background: var(--yellow) !important; border-color: var(--yellow-border) !important; color: var(--yellow-text) !important; }
+.lbl-btn.step { background: var(--mint) !important; border-color: var(--mint-border) !important; color: var(--mint-text) !important; }
+
+.lbl-code-terminal, .lbl-code-row, .lbl-code-line {
+  background: #F8FAFC !important; border: 1px solid #E2E8F0 !important;
+  color: #0F172A !important; border-radius: 10px !important;
+}
+.lbl-code-line { color: #0369A1 !important; font-family: 'Fira Code','Consolas',monospace !important; font-weight: 600 !important; }
+.lbl-ln        { color: #9CA3AF !important; }
+
+/* ----------------------------------------------------------------
+   9. ORDERING WORKSPACE & REORDER PUZZLES (Mint tint)
+   ---------------------------------------------------------------- */
+.ordering-workspace,
+.sentences-workspace,
+.puzzle-container,
+.puzzle-workspace {
+  background: #F0FEFB !important;
+  border: 1.5px solid var(--mint-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  color: var(--text-primary) !important;
+}
+.ordering-header h3 { color: var(--mint-text) !important; font-weight: 700 !important; }
+.ordering-header p  { color: var(--text-secondary) !important; }
+
+.reorder-card,
+.fillup-card,
+.ascending-card,
+.decreasing-card,
+.sentence-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+}
+.reorder-card h4, .fillup-card h4, .sentence-card h4 { color: var(--text-primary) !important; font-weight: 700 !important; }
+
+.reorder-item {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04) !important;
+  transition: all 0.2s ease !important;
+}
+.reorder-item:hover { background: var(--mint) !important; border-color: var(--mint-border) !important; }
+
+.item-position { background: linear-gradient(135deg, #34D399, #10B981) !important; color: #FFFFFF !important; font-weight: 800 !important; border-radius: 8px !important; }
+.item-content p { color: var(--text-primary) !important; font-weight: 700 !important; }
+.mapped-code    { background: var(--blue) !important; border: 1px solid var(--blue-border) !important; color: var(--blue-text) !important; font-weight: 600 !important; border-radius: 6px !important; }
+
+.level-display-box { background: var(--blue) !important; border: 1.5px solid var(--blue-border) !important; border-radius: var(--radius-sm) !important; }
+
+.order-controls-bar { background: #F8FAFC !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+
+/* ----------------------------------------------------------------
+   10. SENTENCE MAPPING SIDEBAR (sms-*)
+   ---------------------------------------------------------------- */
+.sms-sentence { color: var(--text-primary) !important; font-weight: 700 !important; font-style: normal !important; }
+.sms-arrow    { color: #A78BFA !important; }
+.sms-code {
+  background: var(--blue) !important; border: 1px solid var(--blue-border) !important;
+  color: var(--blue-text) !important; border-radius: 6px !important; font-weight: 600 !important;
+  font-family: 'Fira Code','Consolas',monospace !important;
+}
+.sms-tag { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 20px !important; font-weight: 700 !important; }
+.sms-exp { color: var(--text-secondary) !important; }
+.sms-body { gap: 6px; }
+
+/* ----------------------------------------------------------------
+   11. PYTHON & CODE BOXES (Soft Light Cream bg)
+   ---------------------------------------------------------------- */
+.python-code-box,
+.constructed-code-box,
+.fillup-code-box,
+.puzzle-code-template,
+.code-box pre,
+.code-block,
+.fixed-code-pre,
+.bug-fixed-code,
+.modal-code-output {
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: var(--radius-sm) !important;
+  color: #0F172A !important;
+  font-weight: 600 !important;
+  font-family: 'Fira Code','Consolas',monospace !important;
+}
+.code-box { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+
+/* Fillup selects */
+.puzzle-select,
+.fillup-select {
+  background: var(--lavender) !important;
+  border: 1.5px solid var(--lavender-border) !important;
+  color: var(--lavender-text) !important;
+  border-radius: var(--radius-sm) !important;
+  font-weight: 700 !important;
+}
+
+/* ----------------------------------------------------------------
+   12. CODE TRACER / VISUAL STAGE / CONSOLE
+   ---------------------------------------------------------------- */
+.visual-stage {
+  background: linear-gradient(180deg, #EDE9FE 0%, #DDEEFF 100%) !important;
+  border: 1.5px solid #C4B5FD !important;
+  border-radius: var(--radius-md) !important;
+}
+.code-tracer-window {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: var(--radius-md) !important;
+  color: #F1F5F9 !important;
+}
+.console-window  { background: #0F172A !important; border: 1px solid #1E293B !important; border-radius: var(--radius-md) !important; }
+.console-header  { color: #94A3B8 !important; }
+.highlight-line  { background: rgba(251,191,36,0.18) !important; border-left-color: #FBBF24 !important; }
+
+/* ----------------------------------------------------------------
+   13. DEBUGGER SIMULATOR (Blue/Mint accents)
+   ---------------------------------------------------------------- */
+.dbg-root { background: #F0F9FF !important; border: 1.5px solid var(--blue-border) !important; border-radius: var(--radius-lg) !important; }
+.dbg-header { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-md) !important; }
+.dbg-label  { color: var(--text-secondary) !important; }
+
+.dbg-btn { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; transition: all 0.2s !important; }
+.dbg-btn:hover:not(:disabled) { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.dbg-btn.play { background: var(--mint) !important; border-color: var(--mint-border) !important; color: var(--mint-text) !important; }
+
+.dbg-stage-card { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-md) !important; box-shadow: var(--shadow-card) !important; }
+.dbg-stage-header { background: #F0F9FF !important; border-bottom: 1px solid #BAE6FD !important; border-radius: var(--radius-md) var(--radius-md) 0 0 !important; }
+.dbg-stage-header h4 { color: var(--blue-text) !important; font-weight: 700 !important; }
+.step-chip { background: var(--lavender) !important; color: var(--lavender-text) !important; border-radius: 8px !important; font-weight: 600 !important; }
+
+.stage-sentence-box { background: #F8FAFC !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.stage-sentence     { color: var(--text-primary) !important; }
+.stage-character    { color: #7C3AED !important; font-weight: 600 !important; }
+
+.stage-status-bar.status-ok  { background: var(--mint) !important; color: var(--mint-text) !important; border-color: var(--mint-border) !important; border-radius: 8px !important; }
+.stage-status-bar.status-err { background: var(--pink) !important; color: var(--pink-text) !important; border-color: var(--pink-border) !important; border-radius: 8px !important; }
+
+.dbg-tracer-card   { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-md) !important; }
+.dbg-tracer-header { background: #F0F4FF !important; border-bottom: 1px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-md) var(--radius-md) 0 0 !important; }
+.dbg-code-line     { color: var(--text-primary) !important; font-weight: 600 !important; }
+.dbg-code-line.ct-try    { color: #1D4ED8 !important; }
+.dbg-code-line.ct-except { color: #BE123C !important; }
+.dbg-code-line.ct-else   { color: #065F46 !important; }
+.dbg-code-line.ct-finally{ color: #92400E !important; }
+.dbg-code-line.ct-risky  { color: #C2410C !important; }
+.dbg-code-line.ct-code   { color: #4B5563 !important; }
+.dbg-line-num      { color: #CBD5E1 !important; }
+.dbg-code-line.active-line { background: rgba(251,191,36,0.15) !important; border-left-color: #FBBF24 !important; }
+
+.dbg-console        { border-top-color: var(--border) !important; }
+.dbg-console-hdr    { background: #ECFDF5 !important; color: #065F46 !important; border-bottom: 1px solid #A7F3D0 !important; }
+.dbg-console-body   { background: #FFFFFF !important; border-radius: 0 0 var(--radius-md) var(--radius-md) !important; }
+.console-idle       { color: #94A3B8 !important; }
+.console-log        { color: var(--text-secondary) !important; }
+
+.dbg-inspector-card { background: #FFFEF8 !important; border: 1.5px solid #FFE082 !important; border-radius: var(--radius-md) !important; }
+.insp-header h4     { color: var(--text-primary) !important; font-weight: 700 !important; }
+.insp-section-label { color: var(--text-secondary) !important; }
+.insp-var-row       { background: #FFF9C4 !important; border: 1px solid #FFE082 !important; border-radius: 6px !important; }
+.insp-var-name      { color: #1D4ED8 !important; font-weight: 600 !important; }
+.insp-var-type      { color: var(--text-secondary) !important; background: #F3F4F6 !important; border-radius: 4px !important; }
+.insp-var-val       { color: #92400E !important; font-weight: 600 !important; }
+.insp-avail-pill    { background: var(--mint) !important; color: var(--mint-text) !important; border-color: var(--mint-border) !important; border-radius: 8px !important; }
+.insp-missing-pill  { background: var(--pink) !important; color: var(--pink-text) !important; border-color: var(--pink-border) !important; border-radius: 8px !important; }
+.insp-status-box.status-ok  { background: var(--mint) !important; color: var(--mint-text) !important; border-color: var(--mint-border) !important; }
+.insp-status-box.status-err { background: var(--pink) !important; color: var(--pink-text) !important; border-color: var(--pink-border) !important; }
+
+.dbg-condition-desc { color: var(--text-secondary) !important; }
+
+/* ----------------------------------------------------------------
+   14. EXECUTION FLOWCHART (Lavender theme)
+   ---------------------------------------------------------------- */
+.flowchart-root   { background: #FAF5FF !important; border: 1.5px solid var(--lavender-border) !important; border-radius: var(--radius-lg) !important; }
+.flowchart-header h4 { color: #4C1D95 !important; font-weight: 700 !important; }
+.fc-node          { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.fc-node-label    { color: var(--text-primary) !important; font-weight: 600 !important; }
+.fc-state-active  { border-color: #A78BFA !important; background: var(--lavender) !important; box-shadow: 0 0 20px rgba(167,139,250,0.3) !important; }
+.fc-state-active .fc-node-label { color: var(--lavender-text) !important; }
+.fc-state-done    { border-color: var(--mint-border) !important; background: var(--mint) !important; }
+.fc-state-done .fc-node-label   { color: var(--mint-text) !important; }
+.fc-arrow         { background: #D1D5DB !important; }
+.fc-desc-box      { background: var(--lavender) !important; border: 1px solid var(--lavender-border) !important; border-radius: var(--radius-sm) !important; }
+.fc-desc-text strong { color: var(--lavender-text) !important; }
+.fc-desc-text p      { color: var(--text-secondary) !important; }
+.fc-story-hint    { background: #F3F4F6 !important; border-radius: 8px !important; }
+.fc-story-hint span { color: #9CA3AF !important; }
+.fc-story-hint em   { color: #7C3AED !important; }
+.fc-reset-btn { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.fc-reset-btn:hover { background: var(--pink) !important; border-color: var(--pink-border) !important; color: var(--pink-text) !important; }
+
+/* ----------------------------------------------------------------
+   15. BUG HUNTER GAME (Pink/Rose theme)
+   ---------------------------------------------------------------- */
+.bug-root { background: transparent !important; }
+.bug-header-panel {
+  background: #FFF0F6 !important;
+  border: 1.5px solid var(--pink-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+.bug-story-title  { color: #831843 !important; font-weight: 700 !important; }
+.bug-story-pill   { background: var(--pink) !important; color: var(--pink-text) !important; border: 1px solid var(--pink-border) !important; border-radius: 12px !important; font-weight: 600 !important; }
+.bug-p-badge      { background: #F3F4F6 !important; border: 1px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: 8px !important; }
+.bug-header-score { background: var(--yellow) !important; border: 1px solid var(--yellow-border) !important; color: var(--yellow-text) !important; border-radius: 10px !important; }
+
+.bug-scene-card {
+  background: linear-gradient(135deg, #FFF0F6, #FFE4EC) !important;
+  border: 1.5px solid var(--pink-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+.bug-scene-hdr  { color: #831843 !important; font-weight: 700 !important; }
+.bug-scene-desc { color: var(--pink-text) !important; }
+
+.bug-ide-workspace {
+  background: #1E293B !important;
+  border: 1.5px solid #334155 !important;
+  border-radius: var(--radius-md) !important;
+}
+.line-numbers-gutter { background: #162032 !important; border-right: 1px solid #334155 !important; }
+.ln-num              { color: #475569 !important; }
+.bug-code-pre-ide    { background: transparent !important; }
+.editor-code-line    { color: #E2E8F0 !important; font-family: 'Fira Code','Consolas',monospace !important; }
+.editor-code-line:hover { background: rgba(255,255,255,0.04) !important; }
+
+.bug-options-title { color: var(--text-secondary) !important; }
+
+.bug-opt-btn-modern {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  transition: all 0.2s ease !important;
+}
+.bug-opt-btn-modern:hover:not(:disabled) {
+  background: var(--pink) !important;
+  border-color: var(--pink-border) !important;
+  box-shadow: 0 6px 18px rgba(249,168,212,0.25) !important;
+}
+.opt-lbl-text  { color: var(--text-primary) !important; font-weight: 600 !important; }
+.opt-key-badge { background: var(--lavender) !important; border: 1px solid var(--lavender-border) !important; color: var(--lavender-text) !important; border-radius: 6px !important; font-weight: 700 !important; }
+.bug-opt-btn-modern.opt-correct { background: var(--mint) !important; border-color: var(--mint-border) !important; }
+.bug-opt-btn-modern.opt-correct .opt-lbl-text { color: var(--mint-text) !important; }
+.bug-opt-btn-modern.opt-wrong   { background: var(--pink) !important; border-color: #F43F5E !important; }
+.bug-opt-btn-modern.opt-wrong .opt-lbl-text   { color: #BE123C !important; }
+
+.bug-result-panel-modern { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-lg) !important; box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important; }
+.result-success { border-color: var(--mint-border) !important; }
+.result-failure { border-color: var(--pink-border) !important; }
+.result-success .panel-header-strip { color: var(--mint-text) !important; }
+.result-failure .panel-header-strip { color: var(--pink-text) !important; }
+.result-success .panel-status-light { background: #34D399 !important; }
+.result-failure .panel-status-light { background: #F43F5E !important; }
+.explanation-bubble { background: #FAFBFF !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.explanation-p { color: var(--text-primary) !important; }
+.bug-explanation { color: var(--text-secondary) !important; }
+
+.bug-done-inner {
+  background: #FFFEF8 !important;
+  border: 1.5px solid var(--yellow-border) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1), 0 0 24px rgba(251,191,36,0.15) !important;
+  border-radius: var(--radius-lg) !important;
+}
+.bug-done-inner h3, .bug-done-title { color: var(--text-primary) !important; text-shadow: none !important; }
+.bug-done-inner p, .bug-done-desc   { color: var(--text-secondary) !important; }
+.bug-done-desc strong { color: var(--mint-text) !important; }
+.bug-progress-bar { background: linear-gradient(90deg, #34D399, #60A5FA) !important; }
+.bug-progress-bar-wrap { background: #E5E7EB !important; border-radius: 20px !important; }
+.seg-active { background: #FBBF24 !important; box-shadow: 0 0 8px rgba(251,191,36,0.5) !important; }
+
+/* ----------------------------------------------------------------
+   16. STEPPER NAVIGATION BAR (White, clean, blue accents)
+   ---------------------------------------------------------------- */
+.stepper-header-bar {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05) !important;
+}
+.stepper-stage-chip {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA) !important;
+  color: #FFFFFF !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+  border: none !important;
+}
+.stepper-stage-title { color: var(--text-primary) !important; font-weight: 700 !important; }
+
+.stepper-chip {
+  background: #F8FAFC !important;
+  border: 1.5px solid var(--border) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 20px !important;
+  transition: all 0.2s ease !important;
+}
+.stepper-chip:hover { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.stepper-chip.active {
+  background: var(--lavender) !important;
+  border-color: var(--lavender-border) !important;
+  color: var(--lavender-text) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 10px rgba(167,139,250,0.2) !important;
+}
+.stepper-chip.done   { background: var(--mint) !important; border-color: var(--mint-border) !important; color: var(--mint-text) !important; }
+.stepper-chip.locked { background: #F3F4F6 !important; color: #D1D5DB !important; border-color: #E5E7EB !important; }
+
+.stepper-bottom-nav {
+  background: #FFFFFF !important;
+  border-top: 1.5px solid var(--border) !important;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.04) !important;
+}
+.stepper-btn.prev { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.stepper-btn.prev:hover:not(:disabled) { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.stepper-btn.next.next-locked { background: #F3F4F6 !important; color: #D1D5DB !important; border: 1.5px solid var(--border) !important; box-shadow: none !important; }
+
+.stepper-mini-bar  { background: #E5E7EB !important; border-radius: 20px !important; }
+.stepper-mini-fill { background: linear-gradient(90deg, #60A5FA, #A78BFA) !important; border-radius: 20px !important; }
+
+/* ----------------------------------------------------------------
+   17. STAGE COMPLETION POPUP (Green/Yellow)
+   ---------------------------------------------------------------- */
+.stage-completion-popup {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--mint-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12) !important;
+}
+.scp-badge { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 20px !important; }
+.scp-title { color: var(--text-primary) !important; font-weight: 800 !important; }
+.scp-desc  { color: var(--text-secondary) !important; }
+.scp-btn-skip { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.scp-btn-skip:hover { background: var(--yellow) !important; border-color: var(--yellow-border) !important; color: var(--yellow-text) !important; }
+
+/* ----------------------------------------------------------------
+   18. MODAL (White + Soft accents)
+   ---------------------------------------------------------------- */
+.modal-box {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12) !important;
+}
+.modal-header { border-bottom: 1px solid var(--border) !important; }
+.modal-title h3 { color: var(--text-primary) !important; font-weight: 700 !important; }
+.modal-close { background: #F3F4F6 !important; border: 1px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: 8px !important; }
+.modal-subtitle { color: var(--text-secondary) !important; }
+.modal-tmpl-btn { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.modal-tmpl-btn:hover { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.modal-tmpl-btn.tmpl-active { background: var(--lavender) !important; border-color: var(--lavender-border) !important; color: var(--lavender-text) !important; }
+.modal-field-label  { color: var(--text-secondary) !important; }
+.modal-field-input  { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; color: var(--text-primary) !important; border-radius: var(--radius-sm) !important; }
+.modal-field-input:focus { border-color: #60A5FA !important; background: var(--blue) !important; }
+.modal-result-header{ color: var(--mint-text) !important; font-weight: 700 !important; }
+.modal-reset-link   { color: #7C3AED !important; }
+.modal-result-note  { background: var(--yellow) !important; border: 1px solid var(--yellow-border) !important; color: var(--yellow-text) !important; border-radius: 8px !important; }
+
+/* ----------------------------------------------------------------
+   19. AI REASONING SANDBOX (Blue/Sky theme)
+   ---------------------------------------------------------------- */
+.sandbox-container,
+.sandbox-result-card {
+  background: #F0F8FF !important;
+  border: 1.5px solid var(--blue-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  color: var(--text-primary) !important;
+}
+.sandbox-container h3,
+.sandbox-container h4,
+.sandbox-container label,
+.sandbox-container p { color: var(--text-primary) !important; }
+
+.sandbox-form textarea {
+  background: #FFFFFF !important;
+  border: 1.5px solid var(--blue-border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: 0.95rem !important;
+}
+.sandbox-form textarea:focus {
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.15) !important;
+  outline: none !important;
+}
+
+.score-badge { color: var(--yellow-text) !important; font-weight: 800 !important; font-size: 1.8rem !important; }
+.sandbox-result-card { background: var(--yellow) !important; border-color: var(--yellow-border) !important; }
+
+/* ----------------------------------------------------------------
+   20. CONCEPT FLIP CARDS (Alternating Yellow + Mint)
+   ---------------------------------------------------------------- */
+.flip-section {
+  background: linear-gradient(135deg, #FFFDE7 0%, #F0FEFB 100%) !important;
+  border: 1.5px solid #FFE082 !important;
+  border-radius: var(--radius-lg) !important;
+}
+.flip-header-text h2 { color: var(--text-primary) !important; font-weight: 800 !important; }
+.flip-header-text p  { color: var(--text-secondary) !important; }
+.section-label { background: var(--yellow) !important; color: var(--yellow-text) !important; border: 1px solid var(--yellow-border) !important; border-radius: 8px !important; }
+.reset-btn { background: #F3F4F6 !important; border: 1px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: 8px !important; }
+.reset-btn:hover { background: var(--pink) !important; border-color: var(--pink-border) !important; color: var(--pink-text) !important; }
+
+.flip-front { background: linear-gradient(145deg, #FFFDE7, #FFF9C4) !important; border: 1.5px solid #FFE082 !important; border-radius: var(--radius-md) !important; }
+.flip-back  { background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important; border-radius: var(--radius-md) !important; }
+.fc-badge       { background: rgba(0,0,0,0.05) !important; color: var(--text-secondary) !important; border-radius: 6px !important; }
+.fc-story-title { color: var(--text-primary) !important; font-weight: 700 !important; }
+.fc-story-text  { color: var(--text-secondary) !important; }
+.fc-code-pre    { background: #1E293B !important; color: #A5F3FC !important; border-radius: var(--radius-sm) !important; }
+.fc-back-note   { color: #9CA3AF !important; }
+.fc-flip-hint   { color: #9CA3AF !important; }
+
+/* ----------------------------------------------------------------
+   21. CSP — CUSTOM STORY PLAYGROUND (Pink/Rose theme)
+   ---------------------------------------------------------------- */
+.csp-panel { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-lg) !important; box-shadow: var(--shadow-card) !important; }
+.csp-panel-hdr { background: #FFF0F6 !important; border-bottom: 1px solid var(--pink-border) !important; color: #831843 !important; font-weight: 700 !important; border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important; }
+.csp-template-label { color: var(--text-secondary) !important; }
+.csp-tmpl-chip { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: 20px !important; }
+.csp-tmpl-chip:hover { background: var(--pink) !important; border-color: var(--pink-border) !important; color: var(--pink-text) !important; }
+.csp-tmpl-chip.csp-tmpl-active { background: var(--pink) !important; border-color: var(--pink-border) !important; color: var(--pink-text) !important; font-weight: 700 !important; }
+.csp-field-name  { color: var(--text-secondary) !important; }
+.csp-field-input { background: #FAFBFF !important; border: 1.5px solid var(--border) !important; color: var(--text-primary) !important; border-radius: var(--radius-sm) !important; }
+.csp-field-input:focus { border-color: #F9A8D4 !important; background: var(--pink) !important; }
+.csp-editor-container { background: #1E293B !important; border-radius: var(--radius-md) !important; }
+.csp-code-output  { color: #A5F3FC !important; }
+.csp-code-placeholder p { color: #94A3B8 !important; }
+.csp-result-badge { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 20px !important; }
+.csp-result-hint  { color: var(--text-secondary) !important; }
+.csp-result-hint code { background: var(--lavender) !important; color: var(--lavender-text) !important; border-radius: 4px !important; }
+.csp-copy-btn  { background: var(--blue) !important; border: 1px solid var(--blue-border) !important; color: var(--blue-text) !important; border-radius: 8px !important; }
+.csp-copy-btn:hover { background: #BFDBFE !important; }
+.csp-reset-btn, .csp-return-btn { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.csp-footer      { background: #FAFBFF !important; border-top: 1px solid var(--border) !important; border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important; }
+.csp-footer-note { color: #9CA3AF !important; }
+.csp-toggle-nav-below { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; border-radius: var(--radius-lg) !important; box-shadow: var(--shadow-card) !important; }
+.csp-nav-toggle-btn { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.csp-nav-toggle-btn:hover { background: var(--mint) !important; border-color: var(--mint-border) !important; color: var(--mint-text) !important; }
+.csp-current-indicator      { color: var(--text-secondary) !important; }
+.csp-current-indicator strong { color: #7C3AED !important; }
+
+/* ----------------------------------------------------------------
+   22. MISC ELEMENTS
+   ---------------------------------------------------------------- */
+.note { background: var(--yellow) !important; border: 1px solid var(--yellow-border) !important; color: var(--yellow-text) !important; border-radius: var(--radius-sm) !important; }
+.context  { color: var(--text-secondary) !important; }
+.feedback { color: var(--text-secondary) !important; }
+.empty    { color: #D1D5DB !important; }
+
+.objective-row span { background: var(--yellow) !important; border: 1px solid var(--yellow-border) !important; color: var(--yellow-text) !important; border-radius: 8px !important; }
+.mapping            { border-left-color: #FBBF24 !important; }
+.mapping span       { color: #92400E !important; }
+.roadmap article > strong { background: linear-gradient(135deg, #60A5FA, #A78BFA) !important; color: #FFFFFF !important; }
+.sessions article   { border-bottom-color: var(--border) !important; }
+.concept-card       { background: #F8FAFC !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.concept-card span  { color: var(--text-secondary) !important; }
+.concept-card p     { color: var(--text-secondary) !important; }
+.concept-badge      { background: var(--yellow) !important; color: var(--yellow-text) !important; border-radius: 8px !important; }
+
+.story-locked-toast { background: var(--pink) !important; border: 1px solid var(--pink-border) !important; color: var(--pink-text) !important; border-radius: var(--radius-md) !important; box-shadow: var(--shadow-card) !important; }
+
+.scene-controls { background: #F8FAFC !important; border: 1px solid var(--border) !important; border-radius: var(--radius-sm) !important; }
+.scene-controls label { color: var(--text-secondary) !important; }
+
+.opt-btn {
+  background: #FFFFFF !important; border: 1.5px solid var(--border) !important;
+  color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important;
+  transition: all 0.2s ease !important;
+}
+.opt-btn:hover  { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+.opt-btn.active { background: var(--lavender) !important; border-color: var(--lavender-border) !important; color: var(--lavender-text) !important; font-weight: 700 !important; }
+
+.mode-btn { background: #F8FAFC !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; transition: all 0.2s !important; }
+.mode-btn.active { background: var(--lavender) !important; border-color: var(--lavender-border) !important; color: var(--lavender-text) !important; }
+.step-btn { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; transition: all 0.2s !important; }
+.step-btn.active { background: var(--yellow) !important; border-color: var(--yellow-border) !important; color: var(--yellow-text) !important; }
+.dir-btn  { background: #FFFFFF !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.dir-btn.active  { background: var(--mint) !important; border-color: var(--mint-border) !important; color: var(--mint-text) !important; }
+
+.arrow-btn { background: #F3F4F6 !important; border: 1.5px solid var(--border) !important; color: var(--text-secondary) !important; border-radius: var(--radius-sm) !important; }
+.arrow-btn:hover:not(:disabled) { background: var(--blue) !important; border-color: var(--blue-border) !important; color: var(--blue-text) !important; }
+
+/* ----------------------------------------------------------------
+   23. GLOBAL PRIMARY BUTTONS — Cheerful Gradient
+   ---------------------------------------------------------------- */
+.primary,
+.primary-btn,
+.run-btn,
+.fc-run-btn,
+.bug-next-btn,
+.bug-next-btn-modern,
+.bug-restart-btn,
+.modal-generate-btn,
+.csp-generate-btn,
+.csp-add-story-btn,
+.verify-btn,
+.scp-btn-next,
+.stepper-btn.next,
+.story-modal-debugger-btn {
+  background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(96,165,250,0.3) !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: 0.02em !important;
+}
+.primary:hover,
+.primary-btn:hover,
+.run-btn:hover,
+.fc-run-btn:hover,
+.bug-next-btn:hover,
+.bug-next-btn-modern:hover,
+.bug-restart-btn:hover,
+.modal-generate-btn:hover,
+.csp-generate-btn:hover,
+.csp-add-story-btn:hover,
+.verify-btn:hover,
+.scp-btn-next:hover,
+.stepper-btn.next:hover,
+.story-modal-debugger-btn:hover {
+  background: linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(96,165,250,0.4) !important;
+}
+
+/* ----------------------------------------------------------------
+   24. STORY CARTOON BANNERS
+   ---------------------------------------------------------------- */
+.story-cartoon-banner-wrapper {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1), inset 0 0 2px rgba(255,255,255,0.4) !important;
+  border-radius: var(--radius-lg) !important;
+}
+.story-cartoon-image-card {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+/* ----------------------------------------------------------------
+   25. SCORE TRACKER
+   ---------------------------------------------------------------- */
+.score { background: linear-gradient(135deg, #FFF9C4, #FFECB3) !important; color: var(--yellow-text) !important; border: 1px solid var(--yellow-border) !important; border-radius: var(--radius-sm) !important; font-weight: 800 !important; }
+
+
+.sms-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sms-sentence {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.sms-code-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sms-arrow {
+  color: #6366f1;
+  flex-shrink: 0;
+}
+
+.sms-code {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.82rem;
+  color: #a5b4fc;
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.sms-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #4ade80;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+
+.sms-exp {
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+/* Modal CTA — debugger redirect button */
+.story-modal-cta {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 4px;
+}
+
+.story-modal-debugger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 32px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 24px rgba(99,102,241,0.45);
+  letter-spacing: 0.02em;
+}
+
+.story-modal-debugger-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(99,102,241,0.65);
+  filter: brightness(1.1);
+}
+
+/* =====================================================
+   ANIMATED STORY CARTOON BANNER ILLUSTRATIONS
+   ===================================================== */
+.story-cartoon-banner-wrapper {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), inset 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.story-cartoon-banner-wrapper.is-thumbnail {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 120px;
+}
+
+.story-cartoon-banner-wrapper.is-thumbnail .story-cartoon-image-card {
+  max-height: 120px;
+  margin-bottom: 0;
+}
+
+.story-cartoon-banner-wrapper.is-thumbnail .story-cartoon-img {
+  height: 120px;
+}
+
+.story-cartoon-banner-wrapper.is-thumbnail .scb-svg {
+  max-height: 120px;
+}
+
+.story-cartoon-image-card {
+  width: 100%;
+  max-height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.story-cartoon-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.story-cartoon-image-card:hover .story-cartoon-img {
+  transform: scale(1.03);
+}
+
+.scb-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes scbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes scbFloatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes scbBounce {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-4px); }
+}
+
+@keyframes scbPulse {
+  0%, 100% { opacity: 1; transform: scale(1); transform-origin: center; }
+  50% { opacity: 0.7; transform: scale(1.06); transform-origin: center; }
+}
+
+@keyframes scbWiggle {
+  0%, 100% { transform: rotate(0deg); transform-origin: center; }
+  25% { transform: rotate(-3deg); transform-origin: center; }
+  75% { transform: rotate(3deg); transform-origin: center; }
+}
+
 @keyframes scbDash {
   0% { transform: translateX(0); }
   50% { transform: translateX(6px); }
@@ -5441,9 +6583,406 @@ meter {
   transform: translateY(0);
 }
 
+/* ============================================================
+   🌸 SOFT PASTEL DESIGN SYSTEM 🌸
+   Palette: Peach, Cream, Mint Green, Lavender, Baby Blue
+   Soft pastel cards, rounded corners, light shadows, colorful buttons
+   Dark charcoal text (#1E293B) for high contrast readability
+   ============================================================ */
 
+/* ----------------------------------------------------------
+   1. PAGE CANVAS & WORKSPACE (Warm Cream Base)
+   ---------------------------------------------------------- */
+:root,
+html,
+body,
+#root,
+.app-shell,
+.workspace,
+.exception-studio-container,
+.page1-root {
+  background-color: #FDFBF7 !important;
+  background: #FDFBF7 !important;
+  color: #1E293B !important;
+}
 
+.sidebar {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-right: 1px solid #E7E5E4 !important;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.03) !important;
+}
 
+.brand strong { color: #1E293B !important; }
+.brand span { color: #78716C !important; }
 
+/* ----------------------------------------------------------
+   2. HERO BANNERS & STAGE CONTAINERS (Pastel Color Accents)
+   ---------------------------------------------------------- */
+/* Exception Studio Hero — Soft Sky Blue */
+.studio-hero {
+  background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 60%, #DBEAFE 100%) !important;
+  border: 1.5px solid #7DD3FC !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.15) !important;
+  color: #0F172A !important;
+}
 
+.studio-title-box h1 {
+  color: #0369A1 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
 
+.studio-title-box p {
+  color: #0284C7 !important;
+  font-weight: 500 !important;
+}
+
+.studio-badge {
+  background: #BAE6FD !important;
+  color: #075985 !important;
+  border: 1px solid #7DD3FC !important;
+  font-weight: 700 !important;
+  border-radius: 20px !important;
+}
+
+/* Other Hero Banners — Soft Peach & Cream */
+.concept-primer-hero,
+.page1-hero,
+.csp-hero {
+  background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%) !important;
+  border: 1.5px solid #FED7AA !important;
+  border-radius: 20px !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.08) !important;
+  color: #1E293B !important;
+}
+
+.primer-header h2,
+.page1-hero-text h2,
+.csp-hero-title {
+  color: #9A3412 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+.page1-hero-text p,
+.csp-hero-sub {
+  color: #C2410C !important;
+  font-weight: 500 !important;
+}
+
+.page1-badge,
+.csp-hero-badge {
+  background: #FFEDD5 !important;
+  color: #9A3412 !important;
+  border: 1px solid #FDBA74 !important;
+  font-weight: 700 !important;
+  border-radius: 20px !important;
+}
+
+/* ----------------------------------------------------------
+   3. STAGE CARDS & PANELS (Soft Pastel Cards with Light Shadows)
+   ---------------------------------------------------------- */
+/* General Panels & Story Cards — Pure White & Pastel Tint */
+.panel,
+.story-card,
+.active-story-banner,
+.story-scene-card,
+.code-console-card,
+.page1-spotlight-card,
+.story-card-full,
+.lbl-generator-root,
+.lbl-left-panel,
+.lbl-right-panel,
+.csp-panel,
+.bug-header-panel,
+.bug-ide-workspace,
+.bug-result-panel-modern,
+.bug-done-inner,
+.puzzle-container,
+.puzzle-workspace,
+.ordering-workspace,
+.reorder-card,
+.fillup-card,
+.ascending-card,
+.decreasing-card,
+.sentences-workspace,
+.sentence-card,
+.sandbox-container,
+.sandbox-result-card,
+.dbg-root,
+.dbg-header,
+.dbg-stage-card,
+.dbg-tracer-card,
+.dbg-inspector-card,
+.flowchart-root,
+.modal-box,
+.stepper-header-bar,
+.stepper-bottom-nav,
+.stage-completion-popup,
+.code-generator-column,
+.sentence-stepper-column {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid #E7E5E4 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+  color: #1E293B !important;
+}
+
+/* Hover & Active States for Story Cards — Pastel Peach Glow */
+.story-card:hover,
+.story-card-full:hover {
+  transform: translateY(-3px) !important;
+  border-color: #FDBA74 !important;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.12) !important;
+}
+
+.story-card.active,
+.story-card-full.selected {
+  background: #FFF7ED !important;
+  border-color: #F97316 !important;
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.16) !important;
+}
+
+/* ----------------------------------------------------------
+   4. STEP CARDS & SENTENCE MAPPING (Pastel Tinted Cards)
+   ---------------------------------------------------------- */
+.spotlight-step-item,
+.story-action-item,
+.sentence-item-card,
+.lbl-sentence-card,
+.reorder-item {
+  background: #FDFBF7 !important;
+  border: 1.5px solid #E7E5E4 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+}
+
+.sentence-item-card:hover,
+.lbl-sentence-card:hover,
+.spotlight-step-item:hover {
+  background: #FFF7ED !important;
+  border-color: #FDBA74 !important;
+}
+
+.sentence-item-card.active,
+.lbl-sentence-card.active {
+  background: #FFF7ED !important;
+  border-color: #F97316 !important;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.14) !important;
+}
+
+.lbl-sentence-card.done {
+  background: #F0FDF4 !important;
+  border-color: #86EFAC !important;
+}
+
+/* Pills & Step Badges — Soft Pastel Peach / Mint / Blue / Lavender */
+.step-num-pill,
+.sms-num,
+.lbl-step-num,
+.item-position {
+  background: #FFEDD5 !important;
+  color: #9A3412 !important;
+  border: 1px solid #FDBA74 !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+}
+
+.sms-sentence,
+.step-sentence,
+.sentence-text,
+.lbl-sentence-text,
+.item-content p {
+  color: #1E293B !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+}
+
+.sms-exp,
+.step-exp,
+.sentence-explanation,
+.lbl-exp {
+  color: #475569 !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+}
+
+.sms-code,
+.step-code-row code,
+.mapped-code {
+  background: #F0F9FF !important;
+  border: 1px solid #BAE6FD !important;
+  color: #0369A1 !important;
+  font-weight: 600 !important;
+  font-family: 'Fira Code', 'Consolas', monospace !important;
+  border-radius: 8px !important;
+}
+
+.sms-tag,
+.step-tag,
+.lbl-tag {
+  color: #15803D !important;
+  background: #DCFCE7 !important;
+  border: 1px solid #86EFAC !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+}
+
+/* ----------------------------------------------------------
+   5. CODE PANELS & TERMINALS (Soft Cream & Light Lavender Gray)
+   ---------------------------------------------------------- */
+textarea,
+input,
+select,
+pre,
+code,
+.code-block,
+.code-tracer-window,
+.console-window,
+.puzzle-code-template,
+.python-code-box,
+.constructed-code-box,
+.fillup-code-box,
+.fixed-code-pre,
+.bug-fixed-code,
+.bug-code-pre,
+.bug-code-box,
+.bug-code-pre-ide,
+.editor-code-line,
+.csp-editor-container,
+.csp-code-output,
+.modal-code-output,
+.lbl-code-terminal,
+.lbl-code-row,
+.lbl-code-line {
+  background-color: #F8FAFC !important;
+  background: #F8FAFC !important;
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  color: #0F172A !important;
+  font-weight: 600 !important;
+}
+
+.lbl-panel-hdr,
+.dbg-tracer-header,
+.dbg-console-hdr,
+.csp-panel-hdr {
+  background: #F1F5F9 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  color: #1E293B !important;
+  font-weight: 700 !important;
+}
+
+.visual-stage {
+  background: linear-gradient(180deg, #FAF5FF 0%, #F3E8FF 100%) !important;
+  border: 1.5px solid #E9D5FF !important;
+}
+
+/* ----------------------------------------------------------
+   6. COLORFUL PASTEL ACTION BUTTONS & INTERACTIVE PILLS
+   ---------------------------------------------------------- */
+/* Primary Action Buttons — Mint Green (#10B981) */
+.primary,
+.primary-btn,
+.run-btn,
+.fc-run-btn,
+.bug-next-btn,
+.bug-next-btn-modern,
+.bug-restart-btn,
+.modal-generate-btn,
+.csp-generate-btn,
+.csp-add-story-btn,
+.verify-btn {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.28) !important;
+  transition: all 0.2s ease !important;
+}
+
+.primary:hover,
+.primary-btn:hover,
+.run-btn:hover,
+.fc-run-btn:hover,
+.bug-next-btn:hover,
+.bug-next-btn-modern:hover,
+.bug-restart-btn:hover,
+.modal-generate-btn:hover,
+.csp-generate-btn:hover,
+.csp-add-story-btn:hover,
+.verify-btn:hover {
+  background: #059669 !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.38) !important;
+}
+
+/* Option Buttons & Tabs — Pastel Multi-color Variants */
+.opt-btn,
+.sub-tab,
+.mode-btn,
+.step-btn,
+.dir-btn,
+.stepper-chip,
+.filter-pill {
+  background: #FFFFFF !important;
+  border: 1.5px solid #E7E5E4 !important;
+  color: #475569 !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.opt-btn:hover,
+.sub-tab:hover,
+.mode-btn:hover,
+.step-btn:hover,
+.dir-btn:hover,
+.stepper-chip:hover,
+.filter-pill:hover {
+  background: #FFF7ED !important;
+  border-color: #FDBA74 !important;
+  color: #9A3412 !important;
+}
+
+/* Active Tabs / Pills — Soft Peach Highlight (#FFEDD5 / #F97316) */
+.opt-btn.active,
+.sub-tab.active,
+.mode-btn.active,
+.step-btn.active,
+.dir-btn.active,
+.stepper-chip.active,
+.filter-pill.active {
+  background: #FFEDD5 !important;
+  border-color: #F97316 !important;
+  color: #9A3412 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 10px rgba(249, 115, 22, 0.15) !important;
+}
+
+/* Stepper Stage Chip — Lavender Pill (#F3E8FF / #7E22CE) */
+.stepper-stage-chip {
+  background: #F3E8FF !important;
+  color: #6B21A8 !important;
+  border: 1.5px solid #D8B4FE !important;
+  border-radius: 20px !important;
+  font-weight: 700 !important;
+}
+
+/* Completion Popup — Mint & Peach */
+.scp-btn-next {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35) !important;
+}
+
+/* Score Box & Badges */
+.score-badge {
+  color: #9A3412 !important;
+  font-weight: 800 !important;
+}

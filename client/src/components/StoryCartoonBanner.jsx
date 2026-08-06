@@ -452,64 +452,9 @@ export function StoryCartoonBanner({ story, isThumbnail = false, mode = 'both' }
         );
 
       case 'cinderella':
-        return (
-          <svg className="scb-svg" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg_ci" x1="0" y1="0" x2="600" y2="200" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#0284c7" />
-                <stop offset="0.5" stopColor="#1e1b4b" />
-                <stop offset="1" stopColor="#0f172a" />
-              </linearGradient>
-            </defs>
-            <rect width="600" height="200" rx="16" fill="url(#bg_ci)" />
-
-            {/* Palace Clock Striking 12 Midnight */}
-            <g className="scb-pulse">
-              <circle cx="300" cy="115" r="45" fill="#0f172a" stroke="#38bdf8" strokeWidth="4" />
-              <circle cx="300" cy="115" r="38" fill="#1e293b" />
-              {/* Clock Numbers */}
-              <text x="300" y="88" textAnchor="middle" fill="#38bdf8" fontSize="12" fontWeight="bold">12</text>
-              <text x="300" y="148" textAnchor="middle" fill="#94a3b8" fontSize="10">6</text>
-              {/* Hands pointing 12 */}
-              <line x1="300" y1="115" x2="300" y2="87" stroke="#ef4444" strokeWidth="3" strokeLinecap="round" />
-              <line x1="300" y1="115" x2="304" y2="92" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
-            </g>
-
-            {/* Glowing Glass Slipper Left Behind */}
-            <g className="scb-float">
-              <path d="M120 155 Q135 155 150 140 Q160 150 170 155 Z" fill="#e0f2fe" stroke="#38bdf8" strokeWidth="2" />
-              <text x="145" y="175" textAnchor="middle" fill="#7dd3fc" fontSize="12" fontWeight="bold">👠 Glass Slipper</text>
-            </g>
-
-            {/* Pumpkin Carriage */}
-            <g className="scb-bounce">
-              <circle cx="470" cy="140" r="24" fill="#ea580c" />
-              <rect x="466" y="110" width="8" height="10" fill="#15803d" />
-              <circle cx="450" cy="164" r="8" fill="#78350f" stroke="#fef08a" strokeWidth="2" />
-              <circle cx="490" cy="164" r="8" fill="#78350f" stroke="#fef08a" strokeWidth="2" />
-            </g>
-
-            {/* Timeout Error Banner */}
-            <g className="scb-float-slow">
-              <rect x="170" y="20" width="260" height="34" rx="17" fill="rgba(56, 189, 248, 0.25)" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="300" y="41" textAnchor="middle" fill="#bae6fd" fontSize="13" fontWeight="bold" fontFamily="monospace">
-                🕛 TimeoutError: Midnight Exceeded!
-              </text>
-            </g>
-          </svg>
-        );
+        return null;
 
       case 'pied_piper':
-        return (
-          <svg className="scb-svg" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="bg_pp" x1="0" y1="0" x2="600" y2="200" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#0f172a" />
-                <stop offset="0.5" stopColor="#0284c7" />
-                <stop offset="1" stopColor="#064e3b" />
-              </linearGradient>
-            </defs>
-            <rect width="600" height="200" rx="16" fill="url(#bg_pp)" />
 
             {/* Flute Player / Pied Piper */}
             <g className="scb-bounce">

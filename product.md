@@ -235,11 +235,11 @@ ExceptionStudio (root state owner)
 
 | Element | Design Decision | Rationale |
 |---|---|---|
-| **Color Palette** | Dark indigo/navy base (`#0f172a`, `#1e1b4b`) with accent gradients | Premium dark mode; reduces eye strain for long study sessions |
-| **Typography** | System UI / Inter — clean, highly legible | Optimized for code readability and narrative text |
-| **Cards** | Glassmorphism panels with border glow | Modern, polished; maintains depth without clutter |
+| **Color Palette** | Soft Pastel Light Theme (Warm White `#FFFDF5`, Soft Lavender `#F5F0FF`, Rosy Pink `#FFF0F6`, Sky Blue `#E0F2FE`, Mint `#E8FFF6`) with high-contrast dark text (`#1E1B4B`, `#0C3B6E`, `#0F172A`) | Storybook-inspired, magical light theme; reduces eye strain and provides optimal readability for long study sessions |
+| **Typography** | System UI / Inter — clean, highly legible, dark bold headings | Optimized for code readability and narrative clarity |
+| **Cards** | Pure White & Soft Pastel Cards with light borders and subtle shadows | Soft, friendly, elegant feel without visual clutter |
 | **Animations** | CSS keyframes: `bounce`, `float`, `wiggle`, `pulse`, `dash` | Keeps learners engaged; communicates state changes |
-| **Story Themes** | Each story has a unique color glow (red, green, amber, purple…) | Instant visual recognition between stories |
+| **Story Themes** | Each story has a unique soft pastel accent badge (red, green, amber, purple…) | Instant visual recognition between stories |
 | **Illustrations** | High-quality JPG cartoon art + animated SVG banners | Bridges the narrative to visual memory |
 | **Story-specific glow** | `.story-theme-red_hood`, `.story-theme-goldilocks`, etc. | Consistent per-story theming throughout all stages |
 

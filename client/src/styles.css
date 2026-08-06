@@ -6386,7 +6386,10 @@ select {
 .csp-editor-container { background: #FFFFFF !important; border: 1.5px solid #BAE6FD !important; border-radius: var(--radius-md) !important; }
 .csp-editor-gutter { background: #F8FAFC !important; border-right: 1.5px solid #E2E8F0 !important; }
 .csp-ln { color: #475569 !important; font-weight: 700 !important; }
-.csp-code-output  { color: #0F172A !important; font-weight: 600 !important; }
+.csp-code-output,
+.csp-code-output-modern,
+.csp-code-line { color: #0F172A !important; font-weight: 700 !important; font-family: 'Fira Code', 'Consolas', monospace !important; }
+.csp-panel-dark { background: #F0F7FF !important; color: #0C3B6E !important; border-bottom: 1.5px solid #BAE6FD !important; }
 .csp-code-placeholder p { color: #64748B !important; }
 .csp-result-badge { background: var(--mint) !important; color: var(--mint-text) !important; border: 1px solid var(--mint-border) !important; border-radius: 20px !important; }
 .csp-result-hint  { color: var(--text-secondary) !important; }

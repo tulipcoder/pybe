@@ -6342,14 +6342,34 @@ select {
 .reset-btn { background: #F3F4F6 !important; border: 1px solid #E5E7EB !important; color: #374151 !important; border-radius: 8px !important; font-weight: 600 !important; }
 .reset-btn:hover { background: #FFE4EC !important; border-color: #F9A8D4 !important; color: #9D174D !important; }
 
-.flip-front { background: linear-gradient(145deg, #FFFDE7, #FFF9C4) !important; border: 1.5px solid #FFE082 !important; border-radius: var(--radius-md) !important; }
-.flip-back  { background: linear-gradient(145deg, #ECFDF5, #D1FAE5) !important; border-radius: var(--radius-md) !important; }
-.fc-badge       { background: rgba(0,0,0,0.05) !important; color: var(--text-secondary) !important; border-radius: 6px !important; }
-.fc-story-title { color: var(--text-primary) !important; font-weight: 700 !important; }
-.fc-story-text  { color: var(--text-secondary) !important; }
-.fc-code-pre    { background: #1E293B !important; color: #A5F3FC !important; border-radius: var(--radius-sm) !important; }
-.fc-back-note   { color: #9CA3AF !important; }
-.fc-flip-hint   { color: #9CA3AF !important; }
+.flip-front { 
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAFAFA 60%, #FAF8F5 100%) !important; 
+  border: 1.5px solid #E8EAF0 !important; 
+  border-radius: var(--radius-md) !important; 
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+}
+.flip-back { 
+  background: linear-gradient(145deg, #F0FDF4 0%, #ECFDF5 100%) !important; 
+  border: 1.5px solid #A7F3D0 !important;
+  border-radius: var(--radius-md) !important; 
+}
+.fc-try .flip-front     { border-color: #93C5FD !important; }
+.fc-try .fc-keyword     { color: #1D4ED8 !important; }
+.fc-except .flip-front  { border-color: #FCA5A5 !important; }
+.fc-except .fc-keyword  { color: #DC2626 !important; }
+.fc-else .flip-front    { border-color: #86EFAC !important; }
+.fc-else .fc-keyword    { color: #16A34A !important; }
+.fc-finally .flip-front { border-color: #FDE047 !important; }
+.fc-finally .fc-keyword { color: #CA8A04 !important; }
+.fc-raise .flip-front   { border-color: #C4B5FD !important; }
+.fc-raise .fc-keyword   { color: #7C3AED !important; }
+
+.fc-badge       { background: #F1F5F9 !important; color: #475569 !important; border-radius: 6px !important; font-weight: 700 !important; }
+.fc-story-title { color: #0F172A !important; font-weight: 800 !important; }
+.fc-story-text  { color: #334155 !important; font-weight: 500 !important; }
+.fc-code-pre    { background: #F8FAFC !important; border: 1px solid #E2E8F0 !important; color: #0369A1 !important; border-radius: var(--radius-sm) !important; font-weight: 600 !important; }
+.fc-back-note   { color: #64748B !important; }
+.fc-flip-hint   { color: #64748B !important; font-weight: 600 !important; }
 
 /* ----------------------------------------------------------------
    21. CSP — CUSTOM STORY PLAYGROUND (Pink/Rose theme)

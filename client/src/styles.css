@@ -6831,7 +6831,6 @@ body,
 .dbg-inspector-card,
 .flowchart-root,
 .modal-box,
-.stepper-header-bar,
 .stepper-bottom-nav,
 .stage-completion-popup,
 .code-generator-column,
@@ -6842,6 +6841,15 @@ body,
   border-radius: 18px !important;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
   color: #1E293B !important;
+}
+
+.stepper-header-bar {
+  background: linear-gradient(135deg, #EAF6FF 0%, #DBEAFE 50%, #E0F2FE 100%) !important;
+  background-color: #EAF6FF !important;
+  border: 1.5px solid #7DD3FC !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.14) !important;
+  color: #0C3B6E !important;
 }
 
 /* Hover & Active States for Story Cards — Pastel Peach Glow */
